@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import gasManagementImg from '../assets/gas.png';
-import weatherImg from '/weather_analyzer.png';
-import beBadmintonImg from '/be_badminton.png';
+import gasManagementImg from '../assets/Poster2.png';
+import weatherImg from '../assets/App.png';
+import beBadmintonImg from '../assets/Kingster.png';
 import beUI from '/be_ui.png';
 import robotImg from '/robot.png';
 import Poster from '../assets/Poster.png';
@@ -20,7 +20,7 @@ const projects = [
     {
         num: '01',
         name: 'E-commerce Website',
-        desc: 'A fast-paced endless runner built on Scratch, featuring classic arcade mechanics and progressive difficulty.',
+        desc: 'A React-based e-commerce website with a sleek, modern design. Features include product browsing, shopping cart, and a custom admin dashboard for inventory management.',
         type: 'Frontend',
         year: '2025',
         color: COLORS.accent,
@@ -30,54 +30,38 @@ const projects = [
     },
     {
         num: '02',
-        name: 'Gas Management System',
-        desc: 'This Gas Management System is a terminal-based administrative tool built in C for a first-year project. It streamlines gas station operations through a functional, role-based interface.',
-        type: 'C Programming',
+        name: 'Portfolio Website',
+        desc: 'A responsive portfolio website built with React and styled-components. Features a modern design, smooth animations, and a seamless user experience.',
+        type: 'Frontend',
         year: '2025',
         color: '#4db8f0',
         img: gasManagementImg,
         imgAlt: 'UI design mockup on screen',
+        path: 'https://personal-portfolio-olive-six.vercel.app'
     },
     {
         num: '03',
-        name: 'Weather Analyzer',
-        desc: 'An OOP-driven Python application that processes Kaggle weather datasets. Features a modular class structure for automated data cleaning, statistical analysis, and trend visualization.',
-        type: 'Python / Analytics',
+        name: 'E-commerce App',
+        desc: 'A React Native e-commerce app with a clean, intuitive design. Features include product browsing, shopping cart, and a custom admin dashboard for inventory management.',
+        type: 'React Native / CSS',
         year: '2026',
         color: '#b04df0',
         img: weatherImg,
         imgAlt: 'Weather data visualization',
+        path: 'https://github.com/Seven742/E-commerce-app'
     },
     {
         num: '04',
-        name: 'Be Badminton Website',
-        desc: 'A React e-commerce platform for badminton gear. Features a modular architecture, persistent shopping cart, and a custom admin dashboard with a high-tech minimalist design.',
+        name: 'University Website',
+        desc: 'A university website built with React and Tailwind CSS. Features a modern design, responsive layout, and a seamless user experience.',
         type: 'Frontend',
-        year: '2026',
+        year: '2025',
         color: '#f0c04d',
         img: beBadmintonImg,
         imgAlt: 'Be Badminton website mockup',
+        path: 'https://github.com/Seven742/University-app'
     },
-    {
-        num: '05',
-        name: 'Be Badminton UX/UI',
-        desc: 'A UI/UX Design for badminton gear.',
-        type: 'UX/UI Design',
-        year: '2026',
-        color: '#4db8f0',
-        img: beUI,
-        imgAlt: 'Be Badminton UX/UI screens',
-    },
-    {
-        num: '06',
-        name: '4WD Robot Car',
-        desc: 'A 4WD Robot Car built with Arduino UNO, motor driver, and ultrasonic sensor. Features line following, obstacle detection, and remote control via Bluetooth and joystick.',
-        type: 'Arduino / Robotics',
-        year: '2026',
-        color: '#4db8f0',
-        img: robotImg,
-        imgAlt: 'Robot car project',
-    },
+
 ];
 
 function useInView(threshold = 0.15) {

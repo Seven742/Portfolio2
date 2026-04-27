@@ -23,7 +23,7 @@ const skills = [
         icon: '◎',
         title: 'Data Analyst',
         desc: 'Turning messy datasets into clear narratives through analysis and visualization.',
-        tags: ['Python', 'Pandas', 'SQL', 'Matplotlib'],
+        tags: ['Java', 'SQL', 'Data Visualization', 'Data Processing'],
         color: COLORS.accent2,
     },
     {

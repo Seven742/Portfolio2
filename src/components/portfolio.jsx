@@ -183,7 +183,7 @@ function Counter({ target, suffix = "" }) {
 
 /* ── Marquee ── */
 function Marquee() {
-  const items = ["DATA ANALYST", "UI/UX DESIGN", "PYTHON", "REACT", "SQL", "FIGMA", "MACHINE LEARNING", "FRONTEND DEV", "DATA SCIENCE"];
+  const items = ["DATA ANALYST", "UI/UX DESIGN", "JAVA", "REACT", "SQL", "FIGMA", "FRONTEND DEV", "Information Technology"];
   const doubled = [...items, ...items];
   return (
     <div style={{ overflow: "hidden", borderTop: `1px solid ${COLORS.border}`, borderBottom: `1px solid ${COLORS.border}`, background: COLORS.bg, padding: "18px 0", position: "relative", zIndex: 10 }}>
@@ -226,7 +226,7 @@ function Hero() {
       <div className="hero-content" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", position: "relative", zIndex: 2, width: "100%" }}>
         <div style={{ flex: 1 }} className="hero-text">
           <div style={{ ...anim(0.1), fontFamily: "monospace", fontSize: 11, letterSpacing: "0.22em", textTransform: "uppercase", color: COLORS.accent, marginBottom: 28, display: "flex", alignItems: "center", gap: 12 }}>
-            <span style={{ width: 30, height: 1, background: COLORS.accent }} /> Portfolio · Data Science · CADT
+            <span style={{ width: 30, height: 1, background: COLORS.accent }} /> Portfolio · Information Technology · PIKT
           </div>
           <h1 style={{ ...anim(0.3), fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(80px, 15vw, 180px)", lineHeight: 0.82, letterSpacing: "-0.01em", margin: 0, textTransform: "uppercase" }}>
             <span style={{ color: COLORS.white }}>Sai</span><br />
@@ -250,7 +250,7 @@ function Hero() {
       {/* Bottom Row */}
       <div className="hero-bottom" style={{ position: "absolute", bottom: 60, left: "8%", right: "8%", display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
         <p className="hero-desc" style={{ ...anim(0.7), maxWidth: 280, fontFamily: "monospace", fontSize: 12, lineHeight: 1.8, color: COLORS.muted, textAlign: "left" }}>
-          Turning raw data into meaningful stories — through analysis, interfaces, and design. Based in Phnom Penh, Cambodia.
+          Turning raw data into meaningful stories — through analysis, interfaces, and design. Based in Kampong Thom, Cambodia.
         </p>
         <div className="hero-scroll-wrapper">
           <ScrollIndicator loaded={loaded} />

@@ -5,15 +5,16 @@ const COLORS = {
     surface: '#080808',
     border: '#1a1a1a',
     accent: '#4df0c0',
+    accent2: '#4db8f0',
     muted: '#5a6478',
     white: '#f0f4ff',
 };
 
 const stats = [
-    { num: '2nd', label: 'Year at CADT' },
+    { num: '3rd', label: 'Year at PIKT' },
     { num: 3, label: 'Disciplines' },
     { icon: 'all_inclusive', label: 'Curiosity' },
-    { num: 'KH', label: 'Phnom Penh' },
+    { num: 'KH', label: 'Kampong Thom' },
 ];
 
 function SectionLabel({ children }) {
@@ -95,7 +96,7 @@ export default function About() {
                     Crafting with <em style={{ color: COLORS.accent, fontStyle: 'italic' }}>data</em> & design.
                 </h2>
                 <p style={{ fontFamily: 'monospace', fontSize: 13, lineHeight: 1.9, color: COLORS.muted, marginBottom: 14 }}>
-                    I'm a 2nd year Data Science student at the Cambodia Academy of Digital Technology (CADT), passionate about the intersection of data, design, and technology.
+                    I'm a 3rd year Information Technology student at the Polytechnic Institute Of Kampong Thom Province (PIKT), passionate about the intersection of data, design, and technology.
                 </p>
                 <p style={{ fontFamily: 'monospace', fontSize: 13, lineHeight: 1.9, color: COLORS.muted, marginBottom: 32 }}>
                     I believe great interfaces tell stories — and great data does too. My work bridges analytical thinking with visual communication.

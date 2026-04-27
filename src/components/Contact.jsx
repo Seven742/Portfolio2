@@ -10,11 +10,12 @@ const COLORS = {
 };
 
 const contacts = [
-    { icon: 'mail', label: 'Email', value: 'layheangrin@gmail.com', href: 'mailto:layheangrin@gmail.com', target: '_blank' },
-    { icon: 'code', label: 'GitHub', value: 'github.com/RinLayheang', href: 'https://github.com/RinLayheang', target: '_blank' },
-    { icon: 'link', label: 'LinkedIn', value: 'linkedin.com/in/rin-layheang', href: 'https://www.linkedin.com/in/rin-layheang-7aab5a334', target: '_blank' },
-    { icon: 'public', label: 'Facebook', value: 'facebook.com/rinn.layheang', href: 'https://www.facebook.com/rinn.layheang.2025', target: '_blank' },
+    { icon: 'mail', label: 'Email', value: 'saikoemsean@gmail.com', href: 'mailto:saikoemsean@gmail.com', target: '_blank' },
+    { icon: 'code', label: 'GitHub', value: 'github.com/Seven742', href: 'https://github.com/Seven742', target: '_blank' },
+    { icon: 'link', label: 'LinkedIn', value: 'linkedin.com/in/sai-koemsean-07a304406', href: 'https://www.linkedin.com/in/sai-koemsean-07a304406/', target: '_blank' },
+    { icon: 'public', label: 'Facebook', value: 'facebook.com/saikoemsean', href: 'https://web.facebook.com/Seven3.0.1', target: '_blank' },
 ];
+
 
 function useInView(threshold = 0.15) {
     const ref = useRef(null);
