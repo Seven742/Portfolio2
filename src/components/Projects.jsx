@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import gasManagementImg from '../assets/Poster2.png';
+import Poster from '../assets/Poster2.png';
 import weatherImg from '../assets/App.png';
-import beBadmintonImg from '../assets/Kingster.png';
-import beUI from '/be_ui.png';
-import robotImg from '/robot.png';
+import University from '../assets/Kingster.png';
 import Poster from '../assets/Poster.png';
 
 const COLORS = {
@@ -35,8 +33,8 @@ const projects = [
         type: 'Frontend',
         year: '2025',
         color: '#4db8f0',
-        img: gasManagementImg,
-        imgAlt: 'UI design mockup on screen',
+        img: Poster,
+        imgAlt: 'Portfolio Website mockup',
         path: 'https://personal-portfolio-olive-six.vercel.app'
     },
     {
@@ -47,7 +45,7 @@ const projects = [
         year: '2026',
         color: '#b04df0',
         img: weatherImg,
-        imgAlt: 'Weather data visualization',
+        imgAlt: 'E-commerce app mockup',
         path: 'https://github.com/Seven742/E-commerce-app'
     },
     {
@@ -57,8 +55,8 @@ const projects = [
         type: 'Frontend',
         year: '2025',
         color: '#f0c04d',
-        img: beBadmintonImg,
-        imgAlt: 'Be Badminton website mockup',
+        img: University,
+        imgAlt: 'University website mockup',
         path: 'https://github.com/Seven742/University-app'
     },
 
