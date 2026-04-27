@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import Poster from '../assets/Poster2.png';
+import Poster2 from '../assets/Poster2.png';
 import weatherImg from '../assets/App.png';
 import University from '../assets/Kingster.png';
 import Poster from '../assets/Poster.png';
@@ -33,7 +33,7 @@ const projects = [
         type: 'Frontend',
         year: '2025',
         color: '#4db8f0',
-        img: Poster,
+        img: Poster2,
         imgAlt: 'Portfolio Website mockup',
         path: 'https://personal-portfolio-olive-six.vercel.app'
     },
