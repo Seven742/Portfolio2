@@ -66,7 +66,7 @@ const projects = [
         desc: 'A chatbot designed to help users learn the Khmer language through interactive conversations and exercises.',
         type: 'Telegram Bot',
         year: '2026',
-        color: '#f0c04d',
+        color: '#1A35B8',
         img: khmerlearning,
         imgAlt: 'Khmer Learning Bot mockup',
         path: 'https://t.me/KHLearningbot'
