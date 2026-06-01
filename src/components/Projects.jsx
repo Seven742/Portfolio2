@@ -4,6 +4,7 @@ import Poster2 from '../assets/Poster2.png';
 import weatherImg from '../assets/App.png';
 import University from '../assets/Kingster.png';
 import Poster from '../assets/Poster.png';
+import khmerlearning from '../assets/Logo-khmer-learning1.png';
 
 const COLORS = {
     bg: '#000000',
@@ -58,6 +59,17 @@ const projects = [
         img: University,
         imgAlt: 'University website mockup',
         path: 'https://github.com/Seven742/University-app'
+    },
+    {
+        num: '05',
+        name: 'Khmer Learning Bot',
+        desc: 'A chatbot designed to help users learn the Khmer language through interactive conversations and exercises.',
+        type: 'Telegram Bot',
+        year: '2026',
+        color: '#f0c04d',
+        img: khmerlearning,
+        imgAlt: 'Khmer Learning Bot mockup',
+        path: 'https://t.me/KHLearningbot'
     },
 
 ];
