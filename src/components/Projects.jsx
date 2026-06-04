@@ -4,7 +4,7 @@ import Poster2 from '../assets/Poster2.png';
 import weatherImg from '../assets/App.png';
 import University from '../assets/Kingster.png';
 import Poster from '../assets/Poster.png';
-import khmerlearning from '../assets/Logo-khmer-learning1.png';
+import Posterbot from '../assets/Posterbot.png'
 
 const COLORS = {
     bg: '#000000',
@@ -67,7 +67,7 @@ const projects = [
         type: 'Telegram Bot',
         year: '2026',
         color: '#1A35B8',
-        img: khmerlearning,
+        img: Posterbot,
         imgAlt: 'Khmer Learning Bot mockup',
         path: 'https://t.me/KHLearningbot'
     },
