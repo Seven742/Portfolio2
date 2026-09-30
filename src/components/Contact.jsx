@@ -1,126 +1,126 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 
-const COLORS = {
-    bg: '#000000',
-    card: '#0d0d0d',
-    border: '#1a1a1a',
-    accent: '#4df0c0',
-    muted: '#5a6478',
-    white: '#f0f4ff',
-};
-
-const contacts = [
-    { icon: 'mail', label: 'Email', value: 'saikoemsean@gmail.com', href: 'mailto:saikoemsean@gmail.com', target: '_blank' },
-    { icon: 'code', label: 'GitHub', value: 'github.com/Seven742', href: 'https://github.com/Seven742', target: '_blank' },
-    { icon: 'link', label: 'LinkedIn', value: 'linkedin.com/in/sai-koemsean-07a304406', href: 'https://www.linkedin.com/in/sai-koemsean-07a304406/', target: '_blank' },
-    { icon: 'public', label: 'Facebook', value: 'facebook.com/saikoemsean', href: 'https://web.facebook.com/Seven3.0.1', target: '_blank' },
+const contactChannels = [
+    {
+        icon: 'mail',
+        label: 'Direct Email',
+        value: 'saikoemsean@gmail.com',
+        href: 'mailto:saikoemsean@gmail.com',
+        action: 'Send Email',
+    },
+    {
+        icon: 'terminal',
+        label: 'GitHub Profile',
+        value: 'github.com/Seven742',
+        href: 'https://github.com/Seven742',
+        action: 'View Repositories',
+    },
+    {
+        icon: 'hub',
+        label: 'LinkedIn Network',
+        value: 'in/sai-koemsean-07a304406',
+        href: 'https://www.linkedin.com/in/sai-koemsean-07a304406/',
+        action: 'Connect',
+    },
+    {
+        icon: 'public',
+        label: 'Facebook',
+        value: 'facebook.com/saikoemsean',
+        href: 'https://web.facebook.com/Seven3.0.1',
+        action: 'Message',
+    },
 ];
 
+export default function Contact() {
+    const [copied, setCopied] = useState(false);
 
-function useInView(threshold = 0.15) {
-    const ref = useRef(null);
-    const [inView, setInView] = useState(false);
+    const handleCopyEmail = () => {
+        navigator.clipboard.writeText('saikoemsean@gmail.com');
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2500);
+    };
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) setInView(true);
-            },
-            { threshold }
-        );
-        if (ref.current) observer.observe(ref.current);
-        return () => observer.disconnect();
-    }, [threshold]);
-
-    return [ref, inView];
-}
-
-function Reveal({ children, delay = 0, style = {} }) {
-    const [ref, inView] = useInView();
     return (
-        <div
-            ref={ref}
-            style={{
-                opacity: inView ? 1 : 0,
-                transform: inView ? 'translateY(0)' : 'translateY(36px)',
-                transition: `opacity 0.85s ${delay}s ease, transform 0.85s ${delay}s ease`,
-                ...style,
-            }}
-        >
-            {children}
-        </div>
-    );
-}
+        <section id="contact" className="tone-ink py-24 sm:py-36 px-[var(--gutter)] relative">
+            <div className="max-w-[var(--max)] mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                    {/* Left Column */}
+                    <div className="lg:col-span-6 flex flex-col justify-between">
+                        <div>
+                            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-gold mb-4">
+                                <span className="w-4 h-px bg-gold" />
+                                <span>04 / Get In Touch</span>
+                            </div>
 
-function SectionLabel({ children }) {
-    return (
-        <div style={{ fontFamily: 'monospace', fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: COLORS.accent, marginBottom: 20, display: 'flex', alignItems: 'center', gap: 12 }}>
-            <span style={{ display: 'inline-block', width: 28, height: 1, background: COLORS.accent }} />
-            {children}
-        </div>
-    );
-}
+                            <h2 className="font-display font-extrabold text-5xl sm:text-7xl lg:text-8xl uppercase tracking-tight text-paper leading-[0.88] mb-6">
+                                Let's<br />
+                                <span className="text-gold">Connect.</span>
+                            </h2>
 
-function ContactRow({ icon, label, value, href, target }) {
-    const [hovered, setHovered] = useState(false);
-    return (
-        <a
-            href={href}
-            target={target}
-            rel="noopener noreferrer"
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            style={{
-                background: hovered ? '#101418' : COLORS.card,
-                border: `1px solid ${hovered ? COLORS.accent : COLORS.border}`,
-                padding: '22px 26px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                textDecoration: 'none',
-                transition: 'all 0.3s',
-            }}
-        >
-            <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-                <span className="material-symbols-outlined" style={{ fontSize: 22, color: COLORS.accent }}>{icon}</span>
-                <div>
-                    <div style={{ fontFamily: 'monospace', fontSize: 10, letterSpacing: '0.16em', textTransform: 'uppercase', color: COLORS.muted }}>{label}</div>
-                    <div style={{ fontFamily: 'monospace', fontSize: 13, color: COLORS.white, marginTop: 3 }}>{value}</div>
+                            <p className="text-base sm:text-lg text-ink-light max-w-md leading-relaxed mb-8">
+                                Whether you have a project in mind, an internship opportunity, or simply want to talk about data and frontend development, my inbox is always open.
+                            </p>
+                        </div>
+
+                        {/* Quick Email Copy Card */}
+                        <div className="hud p-5 flex items-center justify-between gap-4 max-w-md">
+                            <div className="truncate">
+                                <div className="text-[10px] font-mono uppercase tracking-[0.14em] text-ink-light mb-1">
+                                    Primary Email
+                                </div>
+                                <div className="text-sm font-mono text-paper font-semibold truncate">
+                                    saikoemsean@gmail.com
+                                </div>
+                            </div>
+                            <button
+                                onClick={handleCopyEmail}
+                                className="cut-btn text-xs py-1.5 px-3 flex-shrink-0"
+                            >
+                                <span className="material-symbols-outlined text-sm">
+                                    {copied ? 'check' : 'content_copy'}
+                                </span>
+                                <span>{copied ? 'Copied' : 'Copy'}</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Right Column: Contact Links */}
+                    <div className="lg:col-span-6 flex flex-col gap-4">
+                        {contactChannels.map((item, index) => (
+                            <a
+                                key={index}
+                                href={item.href}
+                                target={item.href.startsWith('mailto') ? '_self' : '_blank'}
+                                rel="noopener noreferrer"
+                                className="hud p-5 sm:p-6 flex items-center justify-between group transition-all duration-300"
+                            >
+                                <div className="flex items-center gap-4">
+                                    <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-ink transition-colors duration-300">
+                                        <span className="material-symbols-outlined text-xl">
+                                            {item.icon}
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <div className="text-[11px] font-mono uppercase tracking-[0.14em] text-ink-light">
+                                            {item.label}
+                                        </div>
+                                        <div className="text-sm font-medium text-paper group-hover:text-gold transition-colors mt-0.5">
+                                            {item.value}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-center gap-2 text-xs font-mono text-ink-light group-hover:text-gold transition-colors">
+                                    <span className="hidden sm:inline">{item.action}</span>
+                                    <span className="material-symbols-outlined text-lg transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">
+                                        north_east
+                                    </span>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
                 </div>
             </div>
-            <span style={{ color: hovered ? COLORS.accent : COLORS.muted, transform: hovered ? 'translate(2px,-2px)' : 'none', transition: 'all 0.2s', fontSize: 20 }} className="material-symbols-outlined">north_east</span>
-        </a>
-    );
-}
-
-export default function Contact() {
-    return (
-        <section id="contact" className="contact-section" style={{ padding: '0 56px 120px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
-            <style>{`
-                @media (max-width: 768px) {
-                    .contact-section {
-                        grid-template-columns: 1fr !important;
-                        padding: clamp(80px, 10vw, 120px) clamp(24px, 5vw, 40px) !important;
-                    }
-                    .contact-section > div {
-                        width: 100%;
-                    }
-                }
-            `}</style>
-            <Reveal>
-                <SectionLabel>Contact</SectionLabel>
-                <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(64px,9vw,120px)', lineHeight: 0.88, color: COLORS.white }}>
-                    Let's<br /><span style={{ color: COLORS.accent }}>Work.</span>
-                </h2>
-                <p style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontSize: 18, color: COLORS.muted, marginTop: 20 }}>
-                    Open to projects, collaborations & opportunities.
-                </p>
-            </Reveal>
-            <Reveal delay={0.15}>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                    {contacts.map((contact, index) => <ContactRow key={index} {...contact} />)}
-                </div>
-            </Reveal>
         </section>
     );
 }

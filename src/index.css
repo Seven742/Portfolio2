@@ -3,117 +3,372 @@
 @tailwind utilities;
 
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  --paper: #eef3f4;
+  --paper-light: #f7f9fa;
+  --ink: #0b1026;
+  --ink-soft: #4b5575;
+  --teal: #0a7a8c;
+  --teal-hover: #086270;
+  --yellow: #ffd43b;
+  --rule: rgba(11, 16, 38, 0.12);
+  --rule-light: rgba(238, 243, 244, 0.18);
+  --display: "Bricolage Grotesque", system-ui, sans-serif;
+  --body: "Onest", "Inter", system-ui, sans-serif;
+  --gutter: clamp(16px, 5vw, 64px);
+  --max: 1200px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --cut: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  --cut-large: polygon(24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%, 0 24px);
+  color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
 }
 
 body {
-  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  line-height: 1.6;
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+::selection {
+  background: rgba(10, 122, 140, 0.2);
+  color: var(--ink);
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--paper);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(11, 16, 38, 0.2);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--teal);
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
+/* ── Typography utilities ── */
+.font-display-cond {
+  font-family: var(--display);
+  font-variation-settings: "wdth" 75, "opsz" 96;
+  letter-spacing: -0.01em;
+  font-weight: 800;
+  line-height: 0.88;
+  text-transform: uppercase;
+}
 
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
+/* ── Animations ── */
+@keyframes riseUp {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-
-  @media (max-width: 1024px) {
-    font-size: 20px;
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.8;
   }
 }
 
-p {
-  margin: 0;
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
-code,
-.counter {
-  font-family: var(--mono);
+@keyframes burnSweep {
+  0% {
+    transform: translateX(-120%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(240%) skewX(-20deg);
+  }
+}
+
+@keyframes sparkDraw {
+  0% {
+    stroke-dashoffset: 200;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.anim-rise {
+  animation: riseUp 0.9s var(--ease) both;
+}
+
+@keyframes radarSweep {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes floatSway {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(1.5deg);
+  }
+}
+
+@keyframes floatInverted {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-1.2deg);
+  }
+}
+
+@keyframes pingSlow {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  70%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.anim-radar {
+  animation: radarSweep 18s linear infinite;
+}
+
+.anim-float-1 {
+  animation: floatSway 4.5s ease-in-out infinite;
+}
+
+.anim-float-2 {
+  animation: floatInverted 5.5s ease-in-out 0.8s infinite;
+}
+
+.anim-float-3 {
+  animation: floatSway 6.2s ease-in-out 1.5s infinite;
+}
+
+.anim-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* ── Shimmer Burn effect on hover ── */
+.burn {
+  position: relative;
+  overflow: hidden;
+}
+
+.burn::after {
+  content: "";
+  position: absolute;
+  top: -20%;
+  bottom: -20%;
+  left: -40%;
+  width: 50%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.burn:hover::after {
+  opacity: 1;
+  animation: burnSweep 0.85s var(--ease) forwards;
+}
+
+/* ── HUD Corner bracket frame ── */
+.hud {
+  --c: var(--ink);
+  --b: 10px;
+  color: inherit;
+  background:
+    linear-gradient(var(--c), var(--c)) left top / var(--b) 1px no-repeat,
+    linear-gradient(var(--c), var(--c)) left top / 1px var(--b) no-repeat,
+    linear-gradient(var(--c), var(--c)) right top / var(--b) 1px no-repeat,
+    linear-gradient(var(--c), var(--c)) right top / 1px var(--b) no-repeat,
+    linear-gradient(var(--c), var(--c)) left bottom / var(--b) 1px no-repeat,
+    linear-gradient(var(--c), var(--c)) left bottom / 1px var(--b) no-repeat,
+    linear-gradient(var(--c), var(--c)) right bottom / var(--b) 1px no-repeat,
+    linear-gradient(var(--c), var(--c)) right bottom / 1px var(--b) no-repeat,
+    rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--rule);
+  transition: all 0.4s var(--ease);
+  position: relative;
+}
+
+.hud:hover {
+  --c: var(--teal);
+  --b: 22px;
+  border-color: rgba(10, 122, 140, 0.4);
+  box-shadow: 0 16px 36px -12px rgba(11, 16, 38, 0.12);
+}
+
+/* ── Cut Corner Button ── */
+.cut-btn {
+  border: 1px solid var(--teal);
+  color: var(--teal);
+  background: rgba(238, 243, 244, 0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  clip-path: var(--cut);
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.25s var(--ease), color 0.25s var(--ease), transform 0.2s, box-shadow 0.25s;
   display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.cut-btn:hover {
+  background: var(--teal);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px -4px rgba(10, 122, 140, 0.35);
+}
+
+.cut-btn-solid {
+  background: var(--teal);
+  color: #ffffff;
+  border: 1px solid var(--teal);
+  clip-path: var(--cut);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 11px 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s var(--ease);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.cut-btn-solid:hover {
+  background: var(--teal-hover);
+  border-color: var(--teal-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -6px rgba(10, 122, 140, 0.45);
+}
+
+/* ── Chamfered Profile Silhouette ── */
+.profile-silhouette {
+  clip-path: var(--cut-large);
+  position: relative;
+  transition: transform 0.6s var(--ease), filter 0.5s ease;
+}
+
+/* ── Sparkline Telemetry ── */
+.hud-spark polyline {
+  fill: none;
+  stroke: var(--teal);
+  stroke-width: 2px;
+  stroke-linejoin: round;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 0;
+  animation: sparkDraw 2s ease-out forwards;
+}
+
+/* ── Section Header style ── */
+.section-meta-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.section-meta-label::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: var(--teal);
+}
+
+/* ── Tone classes ── */
+.tone-ink {
+  background: var(--ink);
+  color: var(--paper);
+  border-top: 1px solid rgba(238, 243, 244, 0.1);
+}
+
+.tone-ink .hud {
+  --c: rgba(238, 243, 244, 0.3);
+  background: rgba(18, 24, 46, 0.7);
+  border-color: rgba(238, 243, 244, 0.12);
+  color: var(--paper);
+}
+
+.tone-ink .hud:hover {
+  --c: var(--yellow);
+  border-color: rgba(255, 212, 59, 0.4);
+}
+
+.tone-ink .cut-btn {
+  border-color: var(--yellow);
+  color: var(--yellow);
+  background: rgba(11, 16, 38, 0.6);
+}
+
+.tone-ink .cut-btn:hover {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+/* Subtle background contours / grid lines */
+.bg-contours {
+  background-image: 
+    linear-gradient(to right, rgba(11, 16, 38, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 16, 38, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
 }

@@ -1,111 +1,98 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const COLORS = {
-    bg: '#000000',
-    card: '#0d0d0d',
-    border: '#1a1a1a',
-    accent: '#4df0c0',
-    accent2: '#4db8f0',
-    accent3: '#f0c04d',
-    muted: '#5a6478',
-    white: '#f0f4ff',
-};
-
-const skills = [
+const skillCategories = [
     {
-        icon: '⬡',
+        num: '01',
         title: 'Frontend Dev',
-        desc: 'Building performant, pixel-perfect interfaces with React, HTML, CSS and JavaScript.',
-        tags: ['HTML/CSS', 'JavaScript', 'React', 'Tailwind'],
-        color: COLORS.accent,
+        subtitle: 'Web Interfaces & Applications',
+        desc: 'Building performant, pixel-perfect, and fully responsive user interfaces using modern React ecosystem tools.',
+        tags: ['React.js', 'JavaScript (ES6+)', 'HTML5 / CSS3', 'Tailwind CSS', 'Vite'],
+        icon: 'terminal',
     },
     {
-        icon: '◎',
-        title: 'Data Analyst',
-        desc: 'Turning messy datasets into clear narratives through analysis and visualization.',
-        tags: ['Java', 'SQL', 'Data Visualization', 'Data Processing'],
-        color: COLORS.accent2,
+        num: '02',
+        title: 'Data Analysis',
+        subtitle: 'Queries, Logic & Visualization',
+        desc: 'Structuring raw datasets, running queries, and turning numbers into actionable and visual narratives.',
+        tags: ['Java', 'SQL / MySQL', 'Data Visualization', 'Data Processing', 'Analytics'],
+        icon: 'analytics',
     },
     {
-        icon: '◈',
+        num: '03',
         title: 'UI/UX Design',
-        desc: 'Designing intuitive interfaces and experiences with strong visual hierarchy.',
-        tags: ['Figma', 'Prototyping', 'Research', 'Design Systems'],
-        color: COLORS.accent3,
+        subtitle: 'Architecture & Visual Systems',
+        desc: 'Crafting user journeys, interactive wireframes, and design systems with a sharp eye for typography and hierarchy.',
+        tags: ['Figma', 'Prototyping', 'Wireframing', 'Design Systems', 'Responsive UI'],
+        icon: 'palette',
     },
 ];
 
-function SectionLabel({ children }) {
-    return (
-        <div style={{ fontFamily: 'monospace', fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: COLORS.accent, marginBottom: 20, display: 'flex', alignItems: 'center', gap: 12 }}>
-            <span style={{ display: 'inline-block', width: 28, height: 1, background: COLORS.accent }} />
-            {children}
-        </div>
-    );
-}
-
-function SkillCard({ icon, title, desc, tags, color }) {
-    const [hovered, setHovered] = useState(false);
-
-    return (
-        <div
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            style={{
-                background: hovered ? '#14181f' : COLORS.card,
-                border: `1px solid ${hovered ? color : COLORS.border}`,
-                padding: '36px 28px',
-                position: 'relative',
-                overflow: 'hidden',
-                transition: 'all 0.3s ease',
-                minHeight: 300,
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-            }}
-        >
-            <div>
-                <div style={{ fontSize: 36, marginBottom: 18, color }}>{icon}</div>
-                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 28, letterSpacing: '0.04em', color: COLORS.white, marginBottom: 16 }}>{title}</div>
-                <p style={{ fontFamily: 'monospace', fontSize: 13, lineHeight: 1.8, color: COLORS.muted, marginBottom: 24 }}>{desc}</p>
-            </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                {tags.map((tag, index) => (
-                    <span key={index} style={{ fontFamily: 'monospace', fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', padding: '6px 12px', border: `1px solid ${hovered ? color + '55' : COLORS.border}`, color: hovered ? color : COLORS.muted, transition: 'all 0.3s ease' }}>
-                        {tag}
-                    </span>
-                ))}
-            </div>
-        </div>
-    );
-}
-
 export default function Skills() {
     return (
-        <section id="skills" className="skills-section" style={{ padding: 'clamp(80px, 10vw, 140px) clamp(24px, 5vw, 56px)' }}>
-            <style>{`
-                @media (max-width: 1024px) {
-                    .skills-grid {
-                        grid-template-columns: repeat(2, 1fr) !important;
-                    }
-                }
-                @media (max-width: 768px) {
-                    .skills-grid {
-                        grid-template-columns: 1fr !important;
-                    }
-                    .skills-grid > div {
-                        width: 100% !important;
-                    }
-                }
-            `}</style>
-            <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-                <SectionLabel>What I Do</SectionLabel>
-                <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(52px,7vw,100px)', lineHeight: 1, color: COLORS.white, marginBottom: 56 }}>
-                    Skills & Expertise
-                </h2>
-                <div className="skills-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: 16 }}>
-                    {skills.map((skill, index) => (
-                        <SkillCard key={index} {...skill} />
+        <section id="skills" className="py-24 sm:py-32 px-[var(--gutter)] border-t border-[var(--rule)] relative bg-[var(--paper)]">
+            <div className="max-w-[var(--max)] mx-auto">
+                {/* Section Header */}
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16 pb-6 border-b border-[var(--rule)]">
+                    <div>
+                        <div className="section-meta-label mb-2">02 / Expertise</div>
+                        <h2 className="font-display font-extrabold text-4xl sm:text-6xl uppercase tracking-tight text-ink">
+                            Skills & Stack
+                        </h2>
+                    </div>
+                    <div className="text-sm font-mono text-ink-soft sm:text-right">
+                        <span>Tools, frameworks & workflows</span>
+                    </div>
+                </div>
+
+                {/* 3 Column Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {skillCategories.map((skill) => (
+                        <div
+                            key={skill.num}
+                            className="hud burn p-7 flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
+                        >
+                            <div>
+                                {/* Top bar of card */}
+                                <div className="flex items-center justify-between mb-6">
+                                    <span className="font-mono text-xs font-semibold text-teal tracking-[0.16em]">
+                                        {skill.num} //
+                                    </span>
+                                    <div className="w-9 h-9 rounded-full bg-teal/10 flex items-center justify-center text-teal group-hover:bg-teal group-hover:text-white transition-colors duration-300">
+                                        <span className="material-symbols-outlined text-lg">
+                                            {skill.icon}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <h3 className="font-display font-bold text-2xl text-ink uppercase tracking-tight mb-1">
+                                    {skill.title}
+                                </h3>
+                                <div className="text-xs font-mono text-ink-soft mb-4">
+                                    {skill.subtitle}
+                                </div>
+
+                                <p className="text-sm text-ink-soft/90 leading-relaxed mb-8">
+                                    {skill.desc}
+                                </p>
+                            </div>
+
+                            {/* Tags list */}
+                            <div className="border-t border-[var(--rule)] pt-5">
+                                <div className="text-[10px] font-mono uppercase tracking-[0.14em] text-ink-soft/70 mb-3">
+                                    Technologies
+                                </div>
+                                <div className="flex flex-wrap gap-2">
+                                    {skill.tags.map((tag, idx) => (
+                                        <span
+                                            key={idx}
+                                            className="text-xs font-mono text-ink-soft bg-white/70 border border-[var(--rule)] px-2.5 py-1 rounded-sm group-hover:border-teal/30 transition-colors"
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
                     ))}
                 </div>
             </div>

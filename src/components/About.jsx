@@ -1,114 +1,107 @@
 import React from 'react';
 
-const COLORS = {
-    bg: '#000000',
-    surface: '#080808',
-    border: '#1a1a1a',
-    accent: '#4df0c0',
-    accent2: '#4db8f0',
-    muted: '#5a6478',
-    white: '#f0f4ff',
-};
-
-const stats = [
-    { num: '3rd', label: 'Year at PIKT' },
-    { num: 3, label: 'Disciplines' },
-    { icon: 'all_inclusive', label: 'Curiosity' },
-    { num: 'KH', label: 'Kampong Thom' },
+const facts = [
+    {
+        num: '3rd',
+        label: 'Academic Year',
+        desc: 'PIKT · Kampong Thom Province',
+    },
+    {
+        num: '03',
+        label: 'Core Disciplines',
+        desc: 'Frontend · Data · UI/UX Design',
+    },
+    {
+        num: '05+',
+        label: 'Projects Completed',
+        desc: 'Web apps, Telegram bots & designs',
+    },
+    {
+        num: 'KH',
+        label: 'Location',
+        desc: 'Kampong Thom, Cambodia',
+    },
 ];
-
-function SectionLabel({ children }) {
-    return (
-        <div style={{ fontFamily: 'monospace', fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: COLORS.accent, marginBottom: 20, display: 'flex', alignItems: 'center', gap: 12 }}>
-            <span style={{ display: 'inline-block', width: 28, height: 1, background: COLORS.accent }} />
-            {children}
-        </div>
-    );
-}
-
-function CtaButton({ href, children }) {
-    const [hovered, setHovered] = React.useState(false);
-    return (
-        <a
-            href={href}
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 10,
-                background: hovered ? COLORS.accent2 : COLORS.accent,
-                color: COLORS.bg,
-                fontFamily: 'monospace',
-                fontSize: 11,
-                letterSpacing: '0.16em',
-                textTransform: 'uppercase',
-                padding: '15px 26px',
-                textDecoration: 'none',
-                fontWeight: 600,
-                transform: hovered ? 'translateY(-2px)' : 'none',
-                transition: 'all 0.2s ease',
-            }}
-        >
-            {children}
-        </a>
-    );
-}
-
-function StatCard({ num, icon, label }) {
-    const [hovered, setHovered] = React.useState(false);
-    return (
-        <div
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            style={{
-                background: hovered ? '#161b22' : COLORS.surface,
-                border: `1px solid ${hovered ? COLORS.accent : COLORS.border}`,
-                padding: '28px 24px',
-                transition: 'all 0.3s ease',
-            }}
-        >
-            <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 52, color: COLORS.accent, lineHeight: 1, marginBottom: 10 }}>
-                {icon ? <span className="material-symbols-outlined" style={{ fontSize: 48 }}>{icon}</span> : num}
-            </div>
-            <div style={{ fontFamily: 'monospace', fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color: COLORS.muted }}>{label}</div>
-        </div>
-    );
-}
 
 export default function About() {
     return (
-        <section id="about" className="about-section" style={{ padding: '140px 56px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
-            <style>{`
-                @media (max-width: 768px) {
-                    .about-section {
-                        grid-template-columns: 1fr !important;
-                        padding: clamp(60px, 8vw, 120px) clamp(24px, 5vw, 40px) !important;
-                    }
-                    .about-stat-grid {
-                        grid-template-columns: 1fr !important;
-                    }
-                }
-            `}</style>
-            <div>
-                <SectionLabel>About Me</SectionLabel>
-                <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(34px,3.5vw,52px)', lineHeight: 1.1, color: COLORS.white, marginBottom: 26 }}>
-                    Crafting with <em style={{ color: COLORS.accent, fontStyle: 'italic' }}>data</em> & design.
-                </h2>
-                <p style={{ fontFamily: 'monospace', fontSize: 13, lineHeight: 1.9, color: COLORS.muted, marginBottom: 14 }}>
-                    I'm a 3rd year Information Technology student at the Polytechnic Institute Of Kampong Thom Province (PIKT), passionate about the intersection of data, design, and technology.
-                </p>
-                <p style={{ fontFamily: 'monospace', fontSize: 13, lineHeight: 1.9, color: COLORS.muted, marginBottom: 32 }}>
-                    I believe great interfaces tell stories — and great data does too. My work bridges analytical thinking with visual communication.
-                </p>
-                <CtaButton href="#contact">Get in Touch →</CtaButton>
-            </div>
-            <div className="about-stat-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-                {stats.map((stat, index) => (
-                    <StatCard key={index} {...stat} />
-                ))}
+        <section id="about" className="py-24 sm:py-32 px-[var(--gutter)] border-t border-[var(--rule)] relative bg-[var(--paper)]">
+            <div className="max-w-[var(--max)] mx-auto">
+                {/* Section Header */}
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16 pb-6 border-b border-[var(--rule)]">
+                    <div>
+                        <div className="section-meta-label mb-2">01 / Profile</div>
+                        <h2 className="font-display font-extrabold text-4xl sm:text-6xl uppercase tracking-tight text-ink">
+                            About Me
+                        </h2>
+                    </div>
+                    <div className="text-sm font-mono text-ink-soft sm:text-right">
+                        <span>Information Technology · PIKT</span>
+                    </div>
+                </div>
+
+                {/* Content Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                    {/* Left Editorial Narrative */}
+                    <div className="lg:col-span-7 flex flex-col gap-6">
+                        <h3 className="font-display font-bold text-2xl sm:text-3xl text-ink leading-snug">
+                            Bridging analytical data with clean, modern interfaces.
+                        </h3>
+
+                        <p className="text-base sm:text-lg text-ink-soft leading-relaxed">
+                            I am a 3rd year Information Technology student at the Polytechnic Institute of Kampong Thom Province (PIKT), passionate about the intersection of data analysis, software development, and intuitive visual design.
+                        </p>
+
+                        <p className="text-sm sm:text-base text-ink-soft/90 leading-relaxed">
+                            I believe great web applications don't just display information — they communicate clearly. Whether optimizing database queries, building responsive interfaces with React and Tailwind, or conceptualizing layouts in Figma, I focus on simplicity, clarity, and precision.
+                        </p>
+
+                        {/* Action buttons */}
+                        <div className="pt-4 flex flex-wrap items-center gap-4">
+                            <a href="#projects" className="cut-btn-solid">
+                                <span>Explore My Work</span>
+                                <span className="material-symbols-outlined text-base">arrow_forward</span>
+                            </a>
+                            <a
+                                href="https://github.com/Seven742"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="cut-btn"
+                            >
+                                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                                </svg>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="#contact" className="cut-btn">
+                                <span>Contact</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Right Fact Cards with HUD Brackets */}
+                    <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {facts.map((fact, index) => (
+                            <div key={index} className="hud p-5 flex flex-col justify-between min-h-[140px]">
+                                <div className="flex items-baseline justify-between">
+                                    <span className="font-display font-extrabold text-4xl text-ink">
+                                        {fact.num}
+                                    </span>
+                                    <span className="w-1.5 h-1.5 rounded-full bg-teal" />
+                                </div>
+                                <div>
+                                    <div className="text-[11px] font-mono uppercase tracking-[0.14em] text-teal font-semibold mb-1">
+                                        {fact.label}
+                                    </div>
+                                    <div className="text-xs text-ink-soft">
+                                        {fact.desc}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
         </section>
     );
 }
-

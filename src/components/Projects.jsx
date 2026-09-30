@@ -1,213 +1,190 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import Poster from '../assets/Poster.png';
 import Poster2 from '../assets/Poster2.png';
 import weatherImg from '../assets/App.png';
 import University from '../assets/Kingster.png';
-import Poster from '../assets/Poster.png';
-import Posterbot from '../assets/Posterbot.png'
-
-const COLORS = {
-    bg: '#000000',
-    card: '#0d0d0d',
-    border: '#1a1a1a',
-    accent: '#4df0c0',
-    muted: '#5a6478',
-    white: '#f0f4ff',
-};
+import Posterbot from '../assets/Posterbot.png';
 
 const projects = [
     {
         num: '01',
-        name: 'E-commerce Website',
-        desc: 'A React-based e-commerce website with a sleek, modern design. Features include product browsing, shopping cart, and a custom admin dashboard for inventory management.',
-        type: 'Frontend',
-        year: '2025',
-        color: COLORS.accent,
-        img: Poster,
-        imgAlt: 'E-commerce Website mockup',
-        path: 'https://github.com/Seven742/E-commerce1',
+        title: 'E-commerce Website',
+        category: 'Web Application',
+        desc: 'A full-featured React e-commerce web platform featuring product catalog browsing, dynamic shopping cart, and a custom administrative dashboard for store inventory control.',
+        tech: ['React.js', 'Tailwind CSS', 'Admin Dashboard', 'JavaScript'],
+        image: Poster,
+        github: 'https://github.com/Seven742/E-commerce1',
+        primaryAction: {
+            label: 'View Code',
+            href: 'https://github.com/Seven742/E-commerce1',
+            icon: 'code',
+        },
     },
     {
         num: '02',
-        name: 'Portfolio Website',
-        desc: 'A responsive portfolio website built with React and styled-components. Features a modern design, smooth animations, and a seamless user experience.',
-        type: 'Frontend',
-        year: '2025',
-        color: '#4db8f0',
-        img: Poster2,
-        imgAlt: 'Portfolio Website mockup',
-        path: 'https://personal-portfolio-olive-six.vercel.app'
+        title: 'Personal Portfolio',
+        category: 'Frontend & UI',
+        desc: 'A responsive personal portfolio website built with React, focusing on clean typography, smooth transitions, and seamless responsive design across all devices.',
+        tech: ['React.js', 'CSS Systems', 'Responsive Design'],
+        image: Poster2,
+        primaryAction: {
+            label: 'Live Preview',
+            href: 'https://personal-portfolio-olive-six.vercel.app',
+            icon: 'arrow_outward',
+        },
     },
     {
         num: '03',
-        name: 'E-commerce App',
-        desc: 'A React Native e-commerce app with a clean, intuitive design. Features include product browsing, shopping cart, and a custom admin dashboard for inventory management.',
-        type: 'React Native / CSS',
-        year: '2026',
-        color: '#b04df0',
-        img: weatherImg,
-        imgAlt: 'E-commerce app mockup',
-        path: 'https://github.com/Seven742/E-commerce-app'
+        title: 'E-commerce Mobile App',
+        category: 'Mobile Application',
+        desc: 'A cross-platform React Native e-commerce mobile application featuring product catalog filtering, interactive cart state, and a modern mobile-first interface.',
+        tech: ['React Native', 'Mobile UI', 'JavaScript', 'State Management'],
+        image: weatherImg,
+        github: 'https://github.com/Seven742/E-commerce-app',
+        primaryAction: {
+            label: 'View Code',
+            href: 'https://github.com/Seven742/E-commerce-app',
+            icon: 'code',
+        },
     },
     {
         num: '04',
-        name: 'University Website',
-        desc: 'A university website built with React and Tailwind CSS. Features a modern design, responsive layout, and a seamless user experience.',
-        type: 'Frontend',
-        year: '2025',
-        color: '#f0c04d',
-        img: University,
-        imgAlt: 'University website mockup',
-        path: 'https://github.com/Seven742/University-app'
+        title: 'University Portal',
+        category: 'Web Design',
+        desc: 'An educational institution website built with React and Tailwind CSS, providing clean course catalog browsing, admissions layout, and modern responsive structuring.',
+        tech: ['React.js', 'Tailwind CSS', 'Web Design'],
+        image: University,
+        github: 'https://github.com/Seven742/University-app',
+        primaryAction: {
+            label: 'View Code',
+            href: 'https://github.com/Seven742/University-app',
+            icon: 'code',
+        },
     },
     {
         num: '05',
-        name: 'Khmer Learning Bot',
-        desc: 'A chatbot designed to help users learn the Khmer language through interactive conversations and exercises.',
-        type: 'Telegram Bot',
-        year: '2026',
-        color: '#1A35B8',
-        img: Posterbot,
-        imgAlt: 'Khmer Learning Bot mockup',
-        path: 'https://t.me/KHLearningbot'
+        title: 'Khmer Learning Bot',
+        category: 'Telegram Assistant',
+        desc: 'An automated Telegram chatbot created to help users study and practice the Khmer language through interactive conversational exercises and lessons.',
+        tech: ['Telegram Bot API', 'JavaScript', 'Chatbot Logic'],
+        image: Posterbot,
+        primaryAction: {
+            label: 'Launch Bot',
+            href: 'https://t.me/KHLearningbot',
+            icon: 'smart_toy',
+        },
     },
-
 ];
-
-function useInView(threshold = 0.15) {
-    const ref = useRef(null);
-    const [inView, setInView] = useState(false);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) setInView(true);
-            },
-            { threshold }
-        );
-        if (ref.current) observer.observe(ref.current);
-        return () => observer.disconnect();
-    }, [threshold]);
-
-    return [ref, inView];
-}
-
-function Reveal({ children, delay = 0, style = {} }) {
-    const [ref, inView] = useInView();
-    return (
-        <div
-            ref={ref}
-            style={{
-                opacity: inView ? 1 : 0,
-                transform: inView ? 'translateY(0)' : 'translateY(36px)',
-                transition: `opacity 0.85s ${delay}s ease, transform 0.85s ${delay}s ease`,
-                ...style,
-            }}
-        >
-            {children}
-        </div>
-    );
-}
-
-function SectionLabel({ children }) {
-    return (
-        <div style={{ fontFamily: 'monospace', fontSize: 10, letterSpacing: '0.22em', textTransform: 'uppercase', color: COLORS.accent, marginBottom: 20, display: 'flex', alignItems: 'center', gap: 12 }}>
-            <span style={{ display: 'inline-block', width: 28, height: 1, background: COLORS.accent }} />
-            {children}
-        </div>
-    );
-}
-
-function ProjectCard({ num, name, desc, type, year, color, img, imgAlt, delay, path }) {
-    const [hov, setHov] = useState(false);
-    const cardContent = (
-        <div
-            onMouseEnter={() => setHov(true)}
-            onMouseLeave={() => setHov(false)}
-            style={{
-                background: COLORS.card,
-                border: `1px solid ${hov ? color : COLORS.border}`,
-                overflow: 'hidden',
-                position: 'relative',
-                transition: 'border-color 0.4s',
-                cursor: 'none',
-                height: '100%',
-            }}
-        >
-            <div style={{ position: 'relative', overflow: 'hidden', aspectRatio: '1.9 / 1' }}>
-                <img
-                    src={img}
-                    alt={imgAlt}
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        transform: hov ? 'scale(1.06)' : 'scale(1)',
-                        transition: 'transform 0.6s ease',
-                        display: 'block',
-                    }}
-                />
-                <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(to bottom, transparent 30%, ${COLORS.bg}dd 100%)` }} />
-                <div style={{ position: 'absolute', inset: 0, background: color + '22', opacity: hov ? 1 : 0, transition: 'opacity 0.4s' }} />
-                <div style={{ position: 'absolute', top: 16, right: 16, fontFamily: 'monospace', fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', color: color, border: `1px solid ${color}55`, background: COLORS.bg + 'cc', padding: '4px 12px', backdropFilter: 'blur(8px)' }}>{type}</div>
-                <div style={{ position: 'absolute', top: 16, left: 16, fontFamily: "'Bebas Neue', sans-serif", fontSize: 15, letterSpacing: '0.1em', color: COLORS.muted }}>{num}</div>
-            </div>
-            <div style={{ padding: '24px 28px 28px' }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 12, marginBottom: 10 }}>
-                    <div style={{ fontFamily: 'Georgia, serif', fontSize: 19, color: COLORS.white, lineHeight: 1.25 }}>{name}</div>
-                    <span className="material-symbols-outlined" style={{ fontSize: 20, color: hov ? color : COLORS.muted, transform: hov ? 'translate(2px,-2px)' : 'none', transition: 'all 0.2s', flexShrink: 0 }}>north_east</span>
-                </div>
-                <p style={{ fontFamily: 'monospace', fontSize: 12, color: COLORS.muted, lineHeight: 1.7, marginBottom: 18 }}>{desc}</p>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                    <div style={{ width: 32, height: 1, background: `linear-gradient(to right, ${color}, transparent)` }} />
-                    <span style={{ fontFamily: 'monospace', fontSize: 11, color: COLORS.muted }}>{year}</span>
-                </div>
-            </div>
-            <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 3, background: color, transform: hov ? 'scaleY(1)' : 'scaleY(0)', transformOrigin: 'top', transition: 'transform 0.4s ease' }} />
-        </div>
-    );
-
-    return (
-        <Reveal delay={delay}>
-            {path ? <Link to={path} style={{ textDecoration: 'none', cursor: 'none' }}>{cardContent}</Link> : cardContent}
-        </Reveal>
-    );
-}
 
 export default function Projects() {
     return (
-        <section id="projects" className="projects-section" style={{ padding: '140px 56px' }}>
-            <style>{`
-                @media (max-width: 768px) {
-                    .projects-section {
-                        padding: clamp(60px, 8vw, 120px) clamp(24px, 5vw, 40px) !important;
-                    }
-                    .projects-grid {
-                        grid-template-columns: 1fr !important;
-                        gap: 16px !important;
-                    }
-                }
-                @media (max-width: 1024px) {
-                    .projects-grid {
-                        grid-template-columns: 1fr !important;
-                    }
-                }
-            `}</style>
-            <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-                <Reveal>
-                    <SectionLabel>Work</SectionLabel>
-                    <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(52px,7vw,100px)', lineHeight: 1, color: COLORS.white, marginBottom: 60 }}>
-                        Selected<br />Projects
-                    </h2>
-                </Reveal>
-                <div className="projects-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginBottom: 24 }}>
-                    {projects.slice(0, 2).map((project, index) => <ProjectCard key={project.num} {...project} delay={index * 0.1} />)}
+        <section id="projects" className="py-24 sm:py-32 px-[var(--gutter)] border-t border-[var(--rule)] relative bg-[var(--paper)]">
+            <div className="max-w-[var(--max)] mx-auto">
+                {/* Section Header */}
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16 pb-6 border-b border-[var(--rule)]">
+                    <div>
+                        <div className="section-meta-label mb-2">03 / Portfolio</div>
+                        <h2 className="font-display font-extrabold text-4xl sm:text-6xl uppercase tracking-tight text-ink">
+                            Selected Projects
+                        </h2>
+                    </div>
+                    <div className="text-sm font-mono text-ink-soft sm:text-right">
+                        <span>Web Apps · Mobile · Chatbots</span>
+                    </div>
                 </div>
-                <div className="projects-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginBottom: 24 }}>
-                    {projects.slice(2, 4).map((project, index) => <ProjectCard key={project.num} {...project} delay={0.2 + index * 0.1} />)}
-                </div>
-                <div className="projects-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
-                    {projects.slice(4, 6).map((project, index) => <ProjectCard key={project.num} {...project} delay={0.4 + index * 0.1} />)}
+
+                {/* Projects Grid: 2 columns on medium/large screens */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+                    {projects.map((item) => (
+                        <article
+                            key={item.num}
+                            className="hud burn flex flex-col justify-between overflow-hidden group transition-all duration-400 hover:-translate-y-2 hover:shadow-2xl"
+                        >
+                            {/* Browser Header Bar */}
+                            <div className="flex items-center justify-between px-4 py-2.5 bg-black/[0.04] border-b border-[var(--rule)]">
+                                <div className="flex items-center gap-1.5">
+                                    <span className="w-2.5 h-2.5 rounded-full bg-black/20" />
+                                    <span className="w-2.5 h-2.5 rounded-full bg-black/20" />
+                                    <span className="w-2.5 h-2.5 rounded-full bg-black/20" />
+                                </div>
+                                <span className="text-[10px] font-mono uppercase tracking-[0.14em] text-ink-soft bg-white/80 px-2 py-0.5 rounded-full border border-black/5">
+                                    {item.category}
+                                </span>
+                                <span className="font-mono text-xs font-semibold text-teal">
+                                    {item.num}
+                                </span>
+                            </div>
+
+                            {/* Image Container */}
+                            <div className="relative aspect-[16/10] overflow-hidden bg-black/5">
+                                <img
+                                    src={item.image}
+                                    alt={`${item.title} preview`}
+                                    className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-ink/20 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            </div>
+
+                            {/* Body info */}
+                            <div className="p-6 sm:p-7 flex flex-col flex-grow justify-between">
+                                <div>
+                                    <div className="flex items-start justify-between gap-4 mb-2">
+                                        <h3 className="font-display font-bold text-2xl text-ink uppercase tracking-tight group-hover:text-teal transition-colors">
+                                            {item.title}
+                                        </h3>
+                                    </div>
+
+                                    <p className="text-sm text-ink-soft leading-relaxed mb-6">
+                                        {item.desc}
+                                    </p>
+                                </div>
+
+                                <div>
+                                    {/* Tech tags */}
+                                    <div className="flex flex-wrap gap-1.5 mb-6">
+                                        {item.tech.map((t, idx) => (
+                                            <span
+                                                key={idx}
+                                                className="text-[11px] font-mono text-ink-soft bg-white/80 border border-[var(--rule)] px-2 py-0.5 rounded-sm"
+                                            >
+                                                {t}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    {/* Action buttons */}
+                                    <div className="flex items-center gap-3 pt-4 border-t border-[var(--rule)]">
+                                        <a
+                                            href={item.primaryAction.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="cut-btn-solid burn text-xs py-2 px-4 group/btn"
+                                        >
+                                            <span>{item.primaryAction.label}</span>
+                                            <span className="material-symbols-outlined text-sm group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform">
+                                                {item.primaryAction.icon}
+                                            </span>
+                                        </a>
+
+                                        {item.github && item.primaryAction.href !== item.github && (
+                                            <a
+                                                href={item.github}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="cut-btn burn text-xs py-2 px-3.5"
+                                            >
+                                                <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                                                </svg>
+                                                <span>Source</span>
+                                            </a>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    ))}
                 </div>
             </div>
         </section>
