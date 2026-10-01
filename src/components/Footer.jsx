@@ -13,7 +13,7 @@ export default function Footer() {
                         Sai Koemsean
                     </span>
                     <span className="text-white/20">/</span>
-                    <span>IT Student · PIKT</span>
+                    <span>Full-Stack Dev · PIKT</span>
                 </div>
 
                 <div className="text-center sm:text-left">

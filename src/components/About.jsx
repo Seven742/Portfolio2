@@ -7,14 +7,14 @@ const facts = [
         desc: 'PIKT · Kampong Thom Province',
     },
     {
-        num: '03',
-        label: 'Core Disciplines',
-        desc: 'Frontend · Data · UI/UX Design',
+        num: 'Full',
+        label: 'Stack Profile',
+        desc: 'Next.js · React · Express · APIs',
     },
     {
-        num: '05+',
-        label: 'Projects Completed',
-        desc: 'Web apps, Telegram bots & designs',
+        num: '06+',
+        label: 'Projects Built',
+        desc: 'Full-stack platforms, APIs & UI',
     },
     {
         num: 'KH',
@@ -27,8 +27,8 @@ export default function About() {
     return (
         <section id="about" className="py-24 sm:py-32 px-[var(--gutter)] border-t border-[var(--rule)] relative bg-[var(--paper)]">
             <div className="max-w-[var(--max)] mx-auto">
-                {/* Section Header */}
-                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16 pb-6 border-b border-[var(--rule)]">
+                {/* Section Header with Scroll Reveal */}
+                <div className="reveal-init flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16 pb-6 border-b border-[var(--rule)]">
                     <div>
                         <div className="section-meta-label mb-2">01 / Profile</div>
                         <h2 className="font-display font-extrabold text-4xl sm:text-6xl uppercase tracking-tight text-ink">
@@ -36,25 +36,44 @@ export default function About() {
                         </h2>
                     </div>
                     <div className="text-sm font-mono text-ink-soft sm:text-right">
-                        <span>Information Technology · PIKT</span>
+                        <span>Full-Stack Developer · PIKT Kampong Thom</span>
                     </div>
                 </div>
 
                 {/* Content Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-                    {/* Left Editorial Narrative */}
-                    <div className="lg:col-span-7 flex flex-col gap-6">
+                    {/* Left Editorial Narrative with Scroll Reveal */}
+                    <div className="reveal-init lg:col-span-7 flex flex-col gap-6">
                         <h3 className="font-display font-bold text-2xl sm:text-3xl text-ink leading-snug">
-                            Bridging analytical data with clean, modern interfaces.
+                            Architecting modern full-stack systems with Next.js, React, and Express.
                         </h3>
 
                         <p className="text-base sm:text-lg text-ink-soft leading-relaxed">
-                            I am a 3rd year Information Technology student at the Polytechnic Institute of Kampong Thom Province (PIKT), passionate about the intersection of data analysis, software development, and intuitive visual design.
+                            I am a 3rd year Information Technology student at the Polytechnic Institute of Kampong Thom Province (PIKT). Having cultivated strong expertise in frontend design and data analysis, I have leveled up into <span className="text-ink font-semibold">Full-Stack Development</span> — building robust, end-to-end web applications with Next.js, React.js, and Express.js.
                         </p>
 
                         <p className="text-sm sm:text-base text-ink-soft/90 leading-relaxed">
-                            I believe great web applications don't just display information — they communicate clearly. Whether optimizing database queries, building responsive interfaces with React and Tailwind, or conceptualizing layouts in Figma, I focus on simplicity, clarity, and precision.
+                            From architecting scalable REST APIs, middleware, and database logic with Node.js & Express, to crafting responsive, SEO-ready interfaces with Next.js and Tailwind CSS, I bridge clean server-side code with intuitive client-side experiences.
                         </p>
+
+                        {/* Full-Stack Architecture Mini-HUD */}
+                        <div className="reveal-scale-init grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+                            <div className="p-3 bg-white/70 border border-[var(--rule)] rounded-sm hover:border-teal/40 hover:-translate-y-1 transition-all">
+                                <div className="text-[10px] font-mono uppercase tracking-wider text-teal font-bold mb-1">Frontend</div>
+                                <div className="text-xs font-semibold text-ink">Next.js & React</div>
+                                <div className="text-[11px] text-ink-soft">SSR, App Router, Tailwind</div>
+                            </div>
+                            <div className="p-3 bg-white/70 border border-[var(--rule)] rounded-sm hover:border-teal/40 hover:-translate-y-1 transition-all">
+                                <div className="text-[10px] font-mono uppercase tracking-wider text-teal font-bold mb-1">Backend</div>
+                                <div className="text-xs font-semibold text-ink">Express.js & Node</div>
+                                <div className="text-[11px] text-ink-soft">REST APIs, Routing, Auth</div>
+                            </div>
+                            <div className="p-3 bg-white/70 border border-[var(--rule)] rounded-sm hover:border-teal/40 hover:-translate-y-1 transition-all">
+                                <div className="text-[10px] font-mono uppercase tracking-wider text-teal font-bold mb-1">Data & UI</div>
+                                <div className="text-xs font-semibold text-ink">SQL & Figma</div>
+                                <div className="text-[11px] text-ink-soft">MySQL, Design Systems</div>
+                            </div>
+                        </div>
 
                         {/* Action buttons */}
                         <div className="pt-4 flex flex-wrap items-center gap-4">
@@ -79,15 +98,19 @@ export default function About() {
                         </div>
                     </div>
 
-                    {/* Right Fact Cards with HUD Brackets */}
+                    {/* Right Fact Cards with Staggered Scroll Reveal */}
                     <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {facts.map((fact, index) => (
-                            <div key={index} className="hud p-5 flex flex-col justify-between min-h-[140px]">
+                            <div
+                                key={index}
+                                className="reveal-scale-init hud p-5 flex flex-col justify-between min-h-[140px] hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300"
+                                style={{ transitionDelay: `${index * 100}ms` }}
+                            >
                                 <div className="flex items-baseline justify-between">
                                     <span className="font-display font-extrabold text-4xl text-ink">
                                         {fact.num}
                                     </span>
-                                    <span className="w-1.5 h-1.5 rounded-full bg-teal" />
+                                    <span className="w-1.5 h-1.5 rounded-full bg-teal animate-pulse" />
                                 </div>
                                 <div>
                                     <div className="text-[11px] font-mono uppercase tracking-[0.14em] text-teal font-semibold mb-1">

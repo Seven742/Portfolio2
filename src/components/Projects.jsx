@@ -80,8 +80,8 @@ export default function Projects() {
     return (
         <section id="projects" className="py-24 sm:py-32 px-[var(--gutter)] border-t border-[var(--rule)] relative bg-[var(--paper)]">
             <div className="max-w-[var(--max)] mx-auto">
-                {/* Section Header */}
-                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16 pb-6 border-b border-[var(--rule)]">
+                {/* Section Header with Scroll Reveal */}
+                <div className="reveal-init flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16 pb-6 border-b border-[var(--rule)]">
                     <div>
                         <div className="section-meta-label mb-2">03 / Portfolio</div>
                         <h2 className="font-display font-extrabold text-4xl sm:text-6xl uppercase tracking-tight text-ink">
@@ -93,12 +93,13 @@ export default function Projects() {
                     </div>
                 </div>
 
-                {/* Projects Grid: 2 columns on medium/large screens */}
+                {/* Projects Grid: 2 columns on medium/large screens with Staggered Scroll Reveal */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-                    {projects.map((item) => (
+                    {projects.map((item, index) => (
                         <article
                             key={item.num}
-                            className="hud burn flex flex-col justify-between overflow-hidden group transition-all duration-400 hover:-translate-y-2 hover:shadow-2xl"
+                            className="reveal-scale-init hud burn flex flex-col justify-between overflow-hidden group transition-all duration-400 hover:-translate-y-2 hover:shadow-2xl"
+                            style={{ transitionDelay: `${index * 120}ms` }}
                         >
                             {/* Browser Header Bar */}
                             <div className="flex items-center justify-between px-4 py-2.5 bg-black/[0.04] border-b border-[var(--rule)]">

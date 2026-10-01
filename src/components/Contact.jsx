@@ -44,8 +44,8 @@ export default function Contact() {
         <section id="contact" className="tone-ink py-24 sm:py-36 px-[var(--gutter)] relative">
             <div className="max-w-[var(--max)] mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-                    {/* Left Column */}
-                    <div className="lg:col-span-6 flex flex-col justify-between">
+                    {/* Left Column with Scroll Reveal */}
+                    <div className="reveal-init lg:col-span-6 flex flex-col justify-between">
                         <div>
                             <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-gold mb-4">
                                 <span className="w-4 h-px bg-gold" />
@@ -58,12 +58,12 @@ export default function Contact() {
                             </h2>
 
                             <p className="text-base sm:text-lg text-ink-light max-w-md leading-relaxed mb-8">
-                                Whether you have a project in mind, an internship opportunity, or simply want to talk about data and frontend development, my inbox is always open.
+                                Whether you have a full-stack project in mind, an internship opportunity, or want to collaborate on Next.js, React, or Express applications, my inbox is always open.
                             </p>
                         </div>
 
                         {/* Quick Email Copy Card */}
-                        <div className="hud p-5 flex items-center justify-between gap-4 max-w-md">
+                        <div className="reveal-scale-init hud p-5 flex items-center justify-between gap-4 max-w-md hover:border-gold/50 transition-colors">
                             <div className="truncate">
                                 <div className="text-[10px] font-mono uppercase tracking-[0.14em] text-ink-light mb-1">
                                     Primary Email
@@ -84,7 +84,7 @@ export default function Contact() {
                         </div>
                     </div>
 
-                    {/* Right Column: Contact Links */}
+                    {/* Right Column: Contact Links with Staggered Scroll Reveal */}
                     <div className="lg:col-span-6 flex flex-col gap-4">
                         {contactChannels.map((item, index) => (
                             <a
@@ -92,7 +92,8 @@ export default function Contact() {
                                 href={item.href}
                                 target={item.href.startsWith('mailto') ? '_self' : '_blank'}
                                 rel="noopener noreferrer"
-                                className="hud p-5 sm:p-6 flex items-center justify-between group transition-all duration-300"
+                                className="reveal-scale-init hud p-5 sm:p-6 flex items-center justify-between group transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl"
+                                style={{ transitionDelay: `${index * 100}ms` }}
                             >
                                 <div className="flex items-center gap-4">
                                     <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-ink transition-colors duration-300">
