@@ -1,114 +1,108 @@
-# 🚀 Sai Koemsean — Full-Stack Developer Portfolio
+# ⚡ Sai Koemsean — Personal Developer Portfolio
 
 <div align="center">
 
-![Full-Stack Developer](https://img.shields.io/badge/Role-Full--Stack_Developer-0a7a8c?style=for-the-badge)
-![Next.js](https://img.shields.io/badge/Next.js_14-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
-![React.js](https://img.shields.io/badge/React.js_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![React](https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Vite](https://img.shields.io/badge/Vite_8-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript_ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![License](https://img.shields.io/badge/License-MIT-0a7a8c?style=for-the-badge)
 
 <p align="center">
-  <b>A modern, high-performance editorial portfolio engineered with Next.js, React.js, Express.js backend architectures, and dynamic cyber-interactive HUD visuals.</b>
+  <b>A sleek, responsive, and animated personal developer portfolio built with React 19, Vite, and Tailwind CSS.</b>
 </p>
 
-[Live Preview](https://personal-portfolio-olive-six.vercel.app) • [Explore Projects](#-featured-projects) • [Tech Stack](#-tech-stack) • [Get In Touch](#-contact--connect)
+[Live Demo](https://personal-portfolio-olive-six.vercel.app) • [Features](#-features) • [Portfolio Architecture](#-portfolio-architecture) • [Getting Started](#-getting-started) • [Contact](#-contact)
 
 </div>
 
 ---
 
-## 🌟 Overview
+## 📖 About This Portfolio
 
-Welcome to my personal developer portfolio! I am **Sai Koemsean**, a 3rd-year Information Technology student at the **Polytechnic Institute of Kampong Thom Province (PIKT)** in Cambodia. 
+This repository contains the source code for the personal developer portfolio of **Sai Koemsean** (Full-Stack Developer & 3rd Year IT student at PIKT, Cambodia).
 
-Having grown from frontend and data analysis foundations into full-stack engineering, I architect end-to-end web applications — from scalable **Node.js / Express.js** backends, RESTful APIs, and database logic to lightning-fast, reactive **Next.js & React.js** frontends with rich editorial aesthetics.
+Built as a lightweight, lightning-fast Single Page Application (SPA) using **React 19** and **Vite 8**, this portfolio showcases:
+- Personal profile and technical expertise
+- Interactive cyber/HUD hero stages
+- Selected web, mobile, and bot projects
+- Smooth scroll-driven animations and micro-interactions
+- Direct contact channels with one-click email copying
 
 ---
 
-## ⚡ Key Highlights & Features
+## ✨ Features of this Portfolio
 
 ### 1. 🎛️ Dual Interactive Profile Stages
-Switch seamlessly between two distinct visual modes:
-- **⬡ Cyber Deck (Default Mode)**:
-  - Concentric counter-rotating cyber tech rings with neon gradient halos.
-  - Vertical holographic laser scanline beam sliding down the portrait.
-  - Floating tech orbit capsules (**Next.js 14 SSR**, **React.js**, **Express REST APIs**).
-  - Live animated equalizer signal analyzer (`0.02ms`) and runtime terminal readout.
-  - Interactive 3D mouse parallax.
-- **◉ Radar HUD (Editorial Mode)**:
-  - Technical rotating radar sweep cone with gradient trail.
-  - Crosshairs, telemetry sparkline waveform, and live availability pings.
+The hero section features a live style toggle allowing visitors to choose between two presentation modes:
+- **⬡ Cyber Deck Mode**:
+  - Dual counter-rotating geometric tech rings with neon glow accents.
+  - Animated vertical laser scanline overlay.
+  - Floating tech orbit badges with subtle float physics.
+  - Dynamic equalizer signal analyzer with 5 bouncing frequency bars and live terminal readout.
+  - 3D parallax responsive to mouse movement.
+- **◉ Radar HUD Mode**:
+  - Technical 360° rotating radar sweep cone.
+  - Radar crosshairs and telemetry card with SVG sparkline waveform.
 
-### 2. 🌊 Scroll Experience & Micro-Animations
-- **Top Global Scroll Progress Bar**: A sleek gradient bar (`Teal` ➔ `Gold`) tracking reading progress at the top edge of the viewport.
-- **Scroll-Triggered Reveal Engine**: IntersectionObserver-powered staggered slide-up & scale-in animations for section headers and cards.
-- **Floating Back-to-Top Button**: Glides into view when scrolled down with an SVG circular progress meter that fills dynamically.
-- **Specialization Meters**: Dynamic animated level bars in the Skills section (95% Full-Stack, 92% Backend & APIs, 88% UI/UX).
-
-### 3. 🛠️ Full-Stack Technical Architecture
-- **Frontend Layer**: Next.js (App Router, SSR/SSG), React.js, React Native, TypeScript, Tailwind CSS.
-- **Backend & APIs**: Express.js, Node.js, RESTful API design, Middleware, Authentication, Java.
-- **Database & Systems**: SQL, MySQL, Database Schema Design, Data Analytics.
-- **Design & UI/UX**: Figma, Design Systems, Wireframing, Micro-interactions.
+### 2. 🌊 Scroll Experience & Micro-Interactions
+- **Top Reading Progress Bar**: Real-time gradient progress bar (`Teal` ➔ `Gold`) at the top edge of the window tracking page scroll percentage.
+- **Scroll Reveal System**: Intersection-based slide-up and scale-in animations for section titles and cards.
+- **Floating Back-to-Top Button**: Smoothly fades into the bottom right after scrolling past 350px, featuring an SVG circular progress meter that fills according to scroll depth.
+- **Technical Specialization Bars**: Animated level progress indicators in the Skills section.
+- **Infinite Marquee Ticker**: Continuous seamless scroll ticker with hover-pause functionality.
+- **One-Click Email Copy**: Clipboard copy button with visual state feedback on the Contact section.
 
 ---
 
-## 💻 Tech Stack
+## 🛠️ Built With
 
-| Category | Technologies |
-| :--- | :--- |
-| **Frontend** | Next.js 14, React 19, React Native, JavaScript (ES6+), TypeScript, Tailwind CSS |
-| **Backend & APIs** | Express.js, Node.js, REST APIs, Routing Middleware, Java |
-| **Databases** | MySQL, SQL, Database Modeling, Query Optimization |
-| **Design & Prototyping** | Figma, UI/UX Systems, Wireframing, Responsive Design |
-| **Tooling & Build** | Vite 8, PostCSS, ESLint, Git, Vercel |
+This portfolio is built purely as a frontend web application using modern tools:
 
----
-
-## 📂 Featured Projects
-
-- **01 // E-commerce Website** — Full-featured React e-commerce web platform with product catalog browsing, cart state, and administrative inventory management. [Code](https://github.com/Seven742/E-commerce1)
-- **02 // Personal Portfolio** — Responsive personal portfolio focusing on clean typography, HUD aesthetics, and full-stack capabilities. [Live Preview](https://personal-portfolio-olive-six.vercel.app)
-- **03 // E-commerce Mobile App** — Cross-platform React Native e-commerce app with catalog filtering, mobile state management, and responsive layouts. [Code](https://github.com/Seven742/E-commerce-app)
-- **04 // University Portal** — Academic portal website built with React and Tailwind CSS for course navigation and admissions. [Code](https://github.com/Seven742/University-app)
-- **05 // Khmer Learning Bot** — Automated Telegram chatbot to help users learn and practice the Khmer language interactively. [Launch Bot](https://t.me/KHLearningbot)
+- **Framework**: [React 19](https://react.dev/)
+- **Build Tool**: [Vite 8](https://vitejs.dev/) (Fast HMR & optimized production bundling)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) & Vanilla CSS custom design tokens
+- **Icons & Fonts**: Google Material Symbols Outlined, Bricolage Grotesque, Onest, JetBrains Mono
+- **Routing**: React Router DOM
+- **Deployment**: Vercel
 
 ---
 
-## 📁 Project Structure
+## 📁 Repository Structure
 
 ```
 Portfolio2/
-├── public/                 # Static assets and icons
+├── public/                 # Static assets, favicon and icons
 ├── src/
-│   ├── assets/             # Images, portraits & project graphics
+│   ├── assets/             # Project screenshots, banners & profile images
 │   ├── components/
-│   │   ├── About.jsx       # Bio, Full-Stack Architecture HUD & stats
-│   │   ├── Contact.jsx     # Contact channels & quick copy card
-│   │   ├── Footer.jsx      # Footer with back-to-top & copyright
-│   │   ├── Nav.jsx         # Sticky floating glassmorphism navbar
+│   │   ├── About.jsx       # Profile summary, full-stack HUD & stats
+│   │   ├── Contact.jsx     # Contact links & one-click clipboard copy
+│   │   ├── Footer.jsx      # Footer with back-to-top & copyright info
+│   │   ├── Nav.jsx         # Sticky floating glassmorphism navigation
 │   │   ├── portfolio.jsx   # Hero, Dual ProfileStage, Marquee & Scroll engine
-│   │   ├── Projects.jsx    # Selected work showcase cards
-│   │   └── Skills.jsx      # Skill categories & capability progress meters
-│   ├── App.css             # Component-specific styles
-│   ├── index.css           # Design system, keyframe animations & utilities
-│   └── main.jsx            # Entry point & React router configuration
-├── index.html              # SEO metadata, Open Graph & typography
-├── package.json            # Project dependencies and build scripts
-├── tailwind.config.js      # Tailwind configuration & theme tokens
-└── vite.config.js          # Vite plugins & build settings
+│   │   ├── Projects.jsx    # Selected projects grid showcase
+│   │   └── Skills.jsx      # Skill categories & capability meters
+│   ├── App.css             # Component level styles
+│   ├── index.css           # Design tokens, HUD frames & custom keyframes
+│   └── main.jsx            # React root mount & Router entry point
+├── index.html              # HTML shell, fonts, SEO & OpenGraph tags
+├── package.json            # Scripts & dependencies
+├── tailwind.config.js      # Custom theme, colors & font families
+└── vite.config.js          # Vite React plugin setup
 ```
 
 ---
 
 ## 🚀 Getting Started
 
-### Prerequisites
-Make sure you have [Node.js](https://nodejs.org/) (v18 or higher recommended) installed.
+Follow these steps to run the portfolio on your local machine:
 
-### Installation
+### Prerequisites
+- [Node.js](https://nodejs.org/) (version 18+ recommended)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+### Steps
 
 1. **Clone the repository:**
    ```bash
@@ -116,7 +110,7 @@ Make sure you have [Node.js](https://nodejs.org/) (v18 or higher recommended) in
    cd Portfolio2
    ```
 
-2. **Install dependencies:**
+2. **Install project dependencies:**
    ```bash
    npm install
    ```
@@ -125,30 +119,30 @@ Make sure you have [Node.js](https://nodejs.org/) (v18 or higher recommended) in
    ```bash
    npm run dev
    ```
-   Open [http://localhost:5173](http://localhost:5173) in your browser to view the portfolio.
+   Open your browser and navigate to `http://localhost:5173`.
 
 4. **Build for production:**
    ```bash
    npm run build
    ```
+   The production-ready assets will be created in the `dist/` directory.
 
-5. **Preview production build locally:**
+5. **Preview the production build:**
    ```bash
    npm run preview
    ```
 
 ---
 
-## 📬 Contact & Connect
+## 📬 Contact
 
+- **Developer**: Sai Koemsean
 - **Email**: [saikoemsean@gmail.com](mailto:saikoemsean@gmail.com)
 - **GitHub**: [@Seven742](https://github.com/Seven742)
 - **LinkedIn**: [Sai Koemsean](https://www.linkedin.com/in/sai-koemsean-07a304406/)
-- **Facebook**: [Sai Koemsean](https://web.facebook.com/Seven3.0.1)
-- **Location**: Kampong Thom, Cambodia
 
 ---
 
 <div align="center">
-  <sub>Designed & engineered with precision by <b>Sai Koemsean</b> • © 2025 - Present</sub>
+  <sub>© 2025 - Present Sai Koemsean. All rights reserved.</sub>
 </div>
