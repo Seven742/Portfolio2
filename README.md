@@ -12,7 +12,7 @@
   <b>A sleek, responsive, and animated personal developer portfolio built with React 19, Vite, and Tailwind CSS.</b>
 </p>
 
-[Live Demo](https://personal-portfolio-olive-six.vercel.app) • [Features](#-features) • [Portfolio Architecture](#-portfolio-architecture) • [Getting Started](#-getting-started) • [Contact](#-contact)
+[Features](#-features) • [Portfolio Architecture](#-portfolio-architecture) • [Getting Started](#-getting-started) • [Contact](#-contact)
 
 </div>
 
