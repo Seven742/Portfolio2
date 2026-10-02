@@ -55,8 +55,8 @@ export default function Nav() {
             <header className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none transition-all duration-300">
                 <nav
                     className={`pointer-events-auto flex items-center justify-between gap-3 sm:gap-6 py-2 px-3 sm:px-5 rounded-full transition-all duration-300 ${scrolled
-                            ? 'bg-white/85 backdrop-blur-xl border border-white/70 shadow-[0_10px_30px_-10px_rgba(11,16,38,0.15)]'
-                            : 'bg-white/75 backdrop-blur-md border border-[rgba(11,16,38,0.08)] shadow-[0_4px_20px_-8px_rgba(11,16,38,0.06)]'
+                        ? 'bg-white/85 backdrop-blur-xl border border-white/70 shadow-[0_10px_30px_-10px_rgba(11,16,38,0.15)]'
+                        : 'bg-white/75 backdrop-blur-md border border-[rgba(11,16,38,0.08)] shadow-[0_4px_20px_-8px_rgba(11,16,38,0.06)]'
                         }`}
                 >
                     {/* Brand */}
@@ -77,8 +77,8 @@ export default function Nav() {
                                     key={item.label}
                                     href={item.href}
                                     className={`px-3 py-1.5 rounded-full transition-all duration-200 ${isActive
-                                            ? 'text-teal font-semibold bg-teal/10'
-                                            : 'hover:text-ink hover:bg-black/5'
+                                        ? 'text-teal font-semibold bg-teal/10'
+                                        : 'hover:text-ink hover:bg-black/5'
                                         }`}
                                 >
                                     {item.label}

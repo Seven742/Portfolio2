@@ -3,7 +3,7 @@ import Poster from '../assets/Poster.png';
 import Poster2 from '../assets/Poster2.png';
 import weatherImg from '../assets/App.png';
 import University from '../assets/Kingster.png';
-import Posterbot from '../assets/Posterbot.png';
+import restaurant from '../assets/restaurant.png';
 
 const projects = [
     {
@@ -22,19 +22,6 @@ const projects = [
     },
     {
         num: '02',
-        title: 'Personal Portfolio',
-        category: 'Frontend & UI',
-        desc: 'A responsive personal portfolio website built with React, focusing on clean typography, smooth transitions, and seamless responsive design across all devices.',
-        tech: ['React.js', 'CSS Systems', 'Responsive Design'],
-        image: Poster2,
-        primaryAction: {
-            label: 'Live Preview',
-            href: 'https://personal-portfolio-olive-six.vercel.app',
-            icon: 'arrow_outward',
-        },
-    },
-    {
-        num: '03',
         title: 'E-commerce Mobile App',
         category: 'Mobile Application',
         desc: 'A cross-platform React Native e-commerce mobile application featuring product catalog filtering, interactive cart state, and a modern mobile-first interface.',
@@ -48,7 +35,7 @@ const projects = [
         },
     },
     {
-        num: '04',
+        num: '03',
         title: 'University Portal',
         category: 'Web Design',
         desc: 'An educational institution website built with React and Tailwind CSS, providing clean course catalog browsing, admissions layout, and modern responsive structuring.',
@@ -62,16 +49,16 @@ const projects = [
         },
     },
     {
-        num: '05',
-        title: 'Khmer Learning Bot',
-        category: 'Telegram Assistant',
-        desc: 'An automated Telegram chatbot created to help users study and practice the Khmer language through interactive conversational exercises and lessons.',
-        tech: ['Telegram Bot API', 'JavaScript', 'Chatbot Logic'],
-        image: Posterbot,
+        num: '04',
+        title: 'Restaurant QR Ordering',
+        category: 'Web Application',
+        desc: 'A modern web application for restaurants that allows customers to scan a QR code at their table to view the menu and place orders directly from their smartphone.',
+        tech: ['Next.js', 'React', 'TailwindCSS', 'MySql'],
+        image: restaurant,
         primaryAction: {
-            label: 'Launch Bot',
-            href: 'https://t.me/KHLearningbot',
-            icon: 'smart_toy',
+            label: 'Coming Soon',
+            href: '#',
+            icon: 'hourglass_empty',
         },
     },
 ];
