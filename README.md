@@ -31,7 +31,7 @@ Built as a lightweight, lightning-fast Single Page Application (SPA) using **Rea
 
 ---
 
-## ✨ Features of this Portfolio
+## ✨ Features of this Portfoli
 
 ### 1. 🎛️ Dual Interactive Profile Stages
 The hero section features a live style toggle allowing visitors to choose between two presentation modes:
