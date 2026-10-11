@@ -4,6 +4,7 @@ import Poster2 from '../assets/Poster2.png';
 import weatherImg from '../assets/App.png';
 import University from '../assets/Kingster.png';
 import restaurant from '../assets/restaurant.png';
+import PIKT from '../assets/PIKT.png'
 
 const projects = [
     {
@@ -50,6 +51,19 @@ const projects = [
     },
     {
         num: '04',
+        title: 'Polytechnic Institute of Kampong Thom Province',
+        category: 'Web Design',
+        desc: 'A modern web application for restaurants that allows customers to scan a QR code at their table to view the menu and place orders directly from their smartphone.',
+        tech: ['Next.js', 'React', 'TailwindCSS', 'MySql'],
+        image: PIKT,
+        primaryAction: {
+            label: 'View Code',
+            href: 'https://github.com/Seven742/PIKT',
+            icon: 'code',
+        },
+    },
+    {
+        num: '05',
         title: 'Restaurant QR Ordering',
         category: 'Web Application',
         desc: 'A modern web application for restaurants that allows customers to scan a QR code at their table to view the menu and place orders directly from their smartphone.',
