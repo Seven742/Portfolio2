@@ -57,9 +57,9 @@ const projects = [
         tech: ['Next.js', 'React', 'TailwindCSS', 'MySql'],
         image: PIKT,
         primaryAction: {
-            label: 'View Code',
-            href: 'https://github.com/Seven742/PIKT',
-            icon: 'code',
+            label: 'View Website',
+            href: 'https://pikt-six.vercel.app/',
+            icon: 'link',
         },
     },
     {

@@ -47,8 +47,8 @@ export default function Skills() {
                 {/* 3 Column Grid with Staggered Scroll Reveal */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {skillCategories.map((skill, index) => {
-                        const proficiencies = ['95%', '92%', '88%'];
-                        const prof = proficiencies[index] || '90%';
+                        // const proficiencies = ['95%', '92%', '88%'];
+                        // const prof = proficiencies[index] || '90%';
 
                         return (
                             <div
@@ -81,7 +81,7 @@ export default function Skills() {
                                     </p>
 
                                     {/* Capability Level Bar */}
-                                    <div className="mb-6 p-3 bg-white/60 border border-[var(--rule)] rounded-sm">
+                                    {/* <div className="mb-6 p-3 bg-white/60 border border-[var(--rule)] rounded-sm">
                                         <div className="flex items-center justify-between text-[11px] font-mono mb-1.5">
                                             <span className="text-ink-soft uppercase font-semibold">Specialization Level</span>
                                             <span className="text-teal font-bold">{prof}</span>
@@ -92,7 +92,7 @@ export default function Skills() {
                                                 style={{ width: prof }}
                                             />
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
 
                                 {/* Tags list */}

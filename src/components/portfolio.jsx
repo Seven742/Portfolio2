@@ -33,11 +33,10 @@ function ProfileStage() {
         <button
           type="button"
           onClick={() => setProfileStyle("cyber")}
-          className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-semibold transition-all ${
-            profileStyle === "cyber"
-              ? "bg-teal text-white shadow-md"
-              : "text-ink-soft hover:text-ink"
-          }`}
+          className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-semibold transition-all ${profileStyle === "cyber"
+            ? "bg-teal text-white shadow-md"
+            : "text-ink-soft hover:text-ink"
+            }`}
           aria-label="Cyber Deck style"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-gold animate-ping" />
@@ -47,11 +46,10 @@ function ProfileStage() {
         <button
           type="button"
           onClick={() => setProfileStyle("radar")}
-          className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-semibold transition-all ${
-            profileStyle === "radar"
-              ? "bg-ink text-white shadow-md"
-              : "text-ink-soft hover:text-ink"
-          }`}
+          className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-semibold transition-all ${profileStyle === "radar"
+            ? "bg-ink text-white shadow-md"
+            : "text-ink-soft hover:text-ink"
+            }`}
           aria-label="Radar HUD style"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-teal" />
@@ -76,6 +74,7 @@ function ProfileStage() {
                   background:
                     "radial-gradient(circle, rgba(10, 122, 140, 0.28) 0%, rgba(255, 212, 59, 0.12) 50%, transparent 70%)",
                   filter: "blur(36px)",
+
                 }}
               />
 
@@ -467,7 +466,8 @@ function Hero() {
             {/* Subtitle */}
             <div className="font-display font-semibold text-lg sm:text-2xl text-ink mb-3 sm:mb-4 tracking-tight flex items-center gap-3">
               <span className="w-8 h-px bg-teal hidden sm:block" />
-              <span>Full-Stack Developer · Next.js · React · Express</span>
+              <span>Full-Stack Developer </span>
+              <span className="w-8 h-px bg-teal hidden sm:block" />
             </div>
 
             {/* Pitch description */}
@@ -591,9 +591,8 @@ function FloatingScrollTopButton() {
     <button
       onClick={scrollToTop}
       aria-label="Scroll back to top"
-      className={`fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-white/95 backdrop-blur-md border border-[var(--rule)] shadow-xl flex items-center justify-center text-ink transition-all duration-300 group hover:scale-110 hover:border-teal hover:text-teal ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6 pointer-events-none"
-      }`}
+      className={`fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-white/95 backdrop-blur-md border border-[var(--rule)] shadow-xl flex items-center justify-center text-ink transition-all duration-300 group hover:scale-110 hover:border-teal hover:text-teal ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6 pointer-events-none"
+        }`}
     >
       <svg className="absolute w-12 h-12 -rotate-90 pointer-events-none" viewBox="0 0 44 44">
         <circle
