@@ -1,348 +1,37 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, } from "react";
 import Nav from "./Nav.jsx";
 import About from "./About.jsx";
 import Skills from "./Skills.jsx";
 import Projects from "./Projects.jsx";
 import Contact from "./Contact.jsx";
 import Footer from "./Footer.jsx";
+import ContourHeroBg from "./ContourHeroBg.jsx";
 import profileImg from "../assets/Koem.png";
 
-/* ── Editorial Cutout Profile Stage with Parallax, Radar Sweep & Multi-Float ── */
-/* ── Editorial Cutout Profile Stage with Dual Styles (Radar HUD vs Cyber Deck) ── */
+/* ── Clean Profile Portrait Stage ── */
 function ProfileStage() {
-  const containerRef = useRef(null);
-  const [offset, setOffset] = useState({ x: 0, y: 0 });
-  const [profileStyle, setProfileStyle] = useState("cyber"); // default to sleek new Cyber Deck style
-
-  const handleMouseMove = (e) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const x = (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
-    const y = (e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
-    setOffset({ x: Math.max(-1, Math.min(1, x)), y: Math.max(-1, Math.min(1, y)) });
-  };
-
-  const handleMouseLeave = () => {
-    setOffset({ x: 0, y: 0 });
-  };
-
   return (
-    <div className="flex flex-col items-center w-full">
-      {/* ── Style Switcher Toggle HUD ── */}
-      <div className="flex items-center gap-1.5 p-1 bg-white/80 backdrop-blur-md border border-[var(--rule)] rounded-full shadow-sm mb-4 sm:mb-6 transition-all hover:border-teal/40">
-        <button
-          type="button"
-          onClick={() => setProfileStyle("cyber")}
-          className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-semibold transition-all ${profileStyle === "cyber"
-            ? "bg-teal text-white shadow-md"
-            : "text-ink-soft hover:text-ink"
-            }`}
-          aria-label="Cyber Deck style"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-gold animate-ping" />
-          <span>⬡ Cyber Deck</span>
-        </button>
+    <div className="flex flex-col items-center justify-center w-full">
+      <div className="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[420px] flex items-center justify-center select-none py-4">
+        {/* Grounding Shadow */}
+        <div
+          className="absolute -bottom-2 w-4/5 h-8 rounded-full pointer-events-none -z-10"
+          style={{
+            background: "radial-gradient(ellipse at center, rgba(11, 16, 38, 0.18) 0%, transparent 75%)",
+            filter: "blur(12px)",
+          }}
+        />
 
-        <button
-          type="button"
-          onClick={() => setProfileStyle("radar")}
-          className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-semibold transition-all ${profileStyle === "radar"
-            ? "bg-ink text-white shadow-md"
-            : "text-ink-soft hover:text-ink"
-            }`}
-          aria-label="Radar HUD style"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-teal" />
-          <span>◉ Radar HUD</span>
-        </button>
-      </div>
-
-      <div
-        ref={containerRef}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        className="relative w-full max-w-[460px] lg:max-w-[500px] flex items-center justify-center select-none py-2"
-      >
-        {/* ── STYLE 1: RADAR HUD ── */}
-        {profileStyle === "radar" && (
-          <>
-            {/* Background Architectural Orbital Rings & Dynamic Radar Scanner */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none -z-10 transition-opacity duration-500">
-              <div
-                className="anim-pulse-glow w-[300px] sm:w-[380px] h-[300px] sm:h-[380px] rounded-full"
-                style={{
-                  background:
-                    "radial-gradient(circle, rgba(10, 122, 140, 0.28) 0%, rgba(255, 212, 59, 0.12) 50%, transparent 70%)",
-                  filter: "blur(36px)",
-
-                }}
-              />
-
-              <svg
-                className="absolute w-[340px] sm:w-[420px] h-[340px] sm:h-[420px] text-ink"
-                viewBox="0 0 400 400"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <defs>
-                  <linearGradient id="radarSweepGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#0a7a8c" stopOpacity="0.18" />
-                    <stop offset="100%" stopColor="#0a7a8c" stopOpacity="0" />
-                  </linearGradient>
-                </defs>
-
-                <g className="anim-radar origin-[200px_200px]">
-                  <path d="M 200 200 L 200 10 A 190 190 0 0 1 334 65 Z" fill="url(#radarSweepGrad)" />
-                  <line x1="200" y1="200" x2="200" y2="10" stroke="#0a7a8c" strokeWidth="1.2" strokeOpacity="0.5" />
-                </g>
-
-                <circle cx="200" cy="200" r="190" stroke="currentColor" strokeWidth="1" strokeOpacity="0.15" strokeDasharray="4 6" />
-                <circle cx="200" cy="200" r="140" stroke="currentColor" strokeWidth="1" strokeOpacity="0.12" />
-                <circle cx="200" cy="200" r="90" stroke="currentColor" strokeWidth="1" strokeOpacity="0.15" strokeDasharray="2 4" />
-                <line x1="200" y1="0" x2="200" y2="400" stroke="currentColor" strokeWidth="0.5" strokeOpacity="0.08" />
-                <line x1="0" y1="200" x2="400" y2="200" stroke="currentColor" strokeWidth="0.5" strokeOpacity="0.08" />
-              </svg>
-            </div>
-
-            {/* Cutout Portrait with Smooth 3D Parallax */}
-            <div
-              className="relative z-10 transition-transform duration-300 ease-out flex items-center justify-center"
-              style={{
-                transform: `translate(${offset.x * 12}px, ${offset.y * 12}px)`,
-              }}
-            >
-              <div
-                className="absolute -bottom-4 w-4/5 h-8 rounded-full pointer-events-none -z-10"
-                style={{
-                  background: "radial-gradient(ellipse at center, rgba(11, 16, 38, 0.3) 0%, transparent 75%)",
-                  filter: "blur(12px)",
-                }}
-              />
-              <picture className="w-full max-w-[320px] sm:max-w-[350px] h-auto block">
-                <img
-                  src={profileImg}
-                  alt="Sai Koemsean"
-                  className="w-full h-auto object-contain transition-all duration-500 hover:scale-[1.02]"
-                  style={{
-                    filter: "drop-shadow(0 20px 32px rgba(10, 122, 140, 0.28)) drop-shadow(0 4px 12px rgba(11, 16, 38, 0.12))",
-                  }}
-                />
-              </picture>
-            </div>
-
-            {/* Floating Badge 1: Top-Left */}
-            <div
-              className="absolute top-6 -left-2 sm:-left-6 z-20 transition-transform duration-500 ease-out anim-float-1"
-              style={{ transform: `translate(${offset.x * -8}px, ${offset.y * -8}px)` }}
-            >
-              <div
-                className="hud py-2 px-3.5 flex items-center gap-2 bg-white/90 backdrop-blur-md shadow-lg border border-[var(--rule)] hover:border-teal/50 transition-colors"
-                style={{ clipPath: "var(--cut)" }}
-              >
-                <span className="w-2 h-2 rounded-full bg-teal animate-pulse" />
-                <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-ink">
-                  Full-Stack · Next.js & React
-                </span>
-              </div>
-            </div>
-
-            {/* Floating Badge 2: Top-Right */}
-            <div
-              className="absolute top-8 -right-2 sm:-right-6 z-20 transition-transform duration-500 ease-out anim-float-2"
-              style={{ transform: `translate(${offset.x * -12}px, ${offset.y * -12}px)` }}
-            >
-              <div
-                className="bg-gold text-ink font-display font-extrabold text-xs uppercase tracking-wider py-1.5 px-3.5 shadow-md flex items-center gap-1.5 transition-transform duration-300 hover:scale-105 cursor-default"
-                style={{ clipPath: "var(--cut)" }}
-              >
-                <span className="material-symbols-outlined text-sm">school</span>
-                <span>PIKT 3rd Year</span>
-              </div>
-            </div>
-
-            {/* Floating Badge 3: Bottom-Right */}
-            <div
-              className="absolute bottom-12 -right-2 sm:-right-4 z-20 transition-transform duration-500 ease-out anim-float-3"
-              style={{ transform: `translate(${offset.x * -10}px, ${offset.y * -10}px)` }}
-            >
-              <div
-                className="hud py-2 px-3 flex items-center gap-2 bg-white/90 backdrop-blur-md shadow-lg border border-[var(--rule)] hover:border-teal/50 transition-colors"
-                style={{ clipPath: "var(--cut)" }}
-              >
-                <span className="text-teal font-bold font-mono text-xs">02 //</span>
-                <span className="font-mono text-[11px] text-ink-soft uppercase tracking-wider font-semibold">
-                  Express.js · REST APIs
-                </span>
-              </div>
-            </div>
-
-            {/* Floating Telemetry Card: Bottom-Left */}
-            <div
-              className="absolute -bottom-4 -left-2 sm:-left-8 z-20 transition-transform duration-500 ease-out"
-              style={{ transform: `translate(${offset.x * -14}px, ${offset.y * -14}px)` }}
-            >
-              <div
-                className="hud p-3.5 sm:p-4 bg-white/95 backdrop-blur-xl border border-[var(--rule)] shadow-xl max-w-[210px] burn hover:-translate-y-1 transition-transform"
-                style={{ clipPath: "var(--cut)" }}
-              >
-                <div className="flex items-center justify-between gap-2 mb-2 pb-1.5 border-b border-[var(--rule)]">
-                  <div className="flex items-center gap-1.5">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-teal"></span>
-                    </span>
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-ink">
-                      Available
-                    </span>
-                  </div>
-                  <span className="text-[10px] font-mono text-teal font-semibold">Fullstack</span>
-                </div>
-                <div className="hud-spark my-1.5">
-                  <svg viewBox="0 0 100 20" className="w-full h-5 overflow-visible">
-                    <polyline points="0,16 18,12 32,18 48,4 64,14 80,6 100,10" />
-                  </svg>
-                </div>
-                <div className="flex items-center justify-between text-[10px] font-mono text-ink-soft">
-                  <span>Specialty</span>
-                  <span className="font-bold text-ink">Next · React · Express</span>
-                </div>
-              </div>
-            </div>
-          </>
-        )}
-
-        {/* ── STYLE 2: CYBER DECK (Futuristic Hologram & Orbit System) ── */}
-        {profileStyle === "cyber" && (
-          <>
-            {/* Concentric Rotating Tech Cyber Rings */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none -z-10">
-              {/* Radiant Cyan & Gold Glow Aura */}
-              <div
-                className="w-[320px] sm:w-[400px] h-[320px] sm:h-[400px] rounded-full animate-pulse"
-                style={{
-                  background:
-                    "radial-gradient(circle, rgba(10, 122, 140, 0.35) 0%, rgba(255, 212, 59, 0.15) 45%, transparent 72%)",
-                  filter: "blur(40px)",
-                }}
-              />
-
-              {/* Outer Counter-Rotating Geometric Ring */}
-              <div className="absolute w-[360px] sm:w-[430px] h-[360px] sm:h-[430px] rounded-full border border-dashed border-teal/25 anim-spin-slow flex items-center justify-center">
-                <span className="absolute -top-1.5 w-3 h-3 rounded-full bg-teal shadow-[0_0_10px_#0a7a8c]" />
-                <span className="absolute -bottom-1.5 w-3 h-3 rounded-full bg-gold shadow-[0_0_10px_#ffd43b]" />
-                <span className="absolute -left-1.5 w-2 h-2 rounded-full bg-teal/60" />
-                <span className="absolute -right-1.5 w-2 h-2 rounded-full bg-teal/60" />
-              </div>
-
-              {/* Inner High-Tech Hexagon Orbit Ring */}
-              <div className="absolute w-[300px] sm:w-[360px] h-[300px] sm:h-[360px] rounded-full border border-teal/40 anim-spin-reverse flex items-center justify-center">
-                <div className="w-[96%] h-[96%] rounded-full border border-[var(--rule)] opacity-60" />
-              </div>
-            </div>
-
-            {/* Cutout Portrait with Holographic Scan Sheen */}
-            <div
-              className="relative z-10 transition-transform duration-300 ease-out flex items-center justify-center overflow-hidden rounded-2xl"
-              style={{
-                transform: `translate(${offset.x * 12}px, ${offset.y * 12}px)`,
-              }}
-            >
-              {/* Laser Scanline Beam overlay */}
-              <div className="anim-holo-scan z-20" />
-
-              {/* Ground Shadow */}
-              <div
-                className="absolute -bottom-3 w-4/5 h-8 rounded-full pointer-events-none -z-10"
-                style={{
-                  background: "radial-gradient(ellipse at center, rgba(10, 122, 140, 0.45) 0%, transparent 75%)",
-                  filter: "blur(14px)",
-                }}
-              />
-
-              <picture className="w-full max-w-[320px] sm:max-w-[350px] h-auto block relative z-10">
-                <img
-                  src={profileImg}
-                  alt="Sai Koemsean"
-                  className="w-full h-auto object-contain transition-all duration-500 hover:scale-[1.03]"
-                  style={{
-                    filter: "drop-shadow(0 20px 36px rgba(10, 122, 140, 0.35)) drop-shadow(0 4px 16px rgba(11, 16, 38, 0.15))",
-                  }}
-                />
-              </picture>
-            </div>
-
-            {/* Cyber Orbit Capsule 1: Top-Left (Next.js 14) */}
-            <div
-              className="absolute top-4 -left-2 sm:-left-6 z-20 transition-transform duration-500 ease-out anim-float-1"
-              style={{ transform: `translate(${offset.x * -9}px, ${offset.y * -9}px)` }}
-            >
-              <div className="flex items-center gap-2 py-2 px-3 bg-ink/90 text-white backdrop-blur-xl border border-teal/40 shadow-xl rounded-lg hover:border-teal transition-all">
-                <span className="w-2 h-2 rounded-full bg-teal animate-ping" />
-                <span className="font-mono text-[11px] font-bold tracking-wider">
-                  ▲ Next.js 14 SSR
-                </span>
-              </div>
-            </div>
-
-            {/* Cyber Orbit Capsule 2: Top-Right (React.js) */}
-            <div
-              className="absolute top-6 -right-2 sm:-right-6 z-20 transition-transform duration-500 ease-out anim-float-2"
-              style={{ transform: `translate(${offset.x * -11}px, ${offset.y * -11}px)` }}
-            >
-              <div className="flex items-center gap-1.5 py-1.5 px-3 bg-white/95 backdrop-blur-xl border border-[var(--rule)] shadow-lg rounded-lg text-ink font-mono text-[11px] font-semibold hover:border-gold transition-colors">
-                <span className="text-teal text-sm">⚛</span>
-                <span>React.js Web</span>
-              </div>
-            </div>
-
-            {/* Cyber Orbit Capsule 3: Bottom-Right (Express.js APIs) */}
-            <div
-              className="absolute bottom-14 -right-2 sm:-right-4 z-20 transition-transform duration-500 ease-out anim-float-3"
-              style={{ transform: `translate(${offset.x * -13}px, ${offset.y * -13}px)` }}
-            >
-              <div className="flex items-center gap-2 py-1.5 px-3 bg-white/90 backdrop-blur-xl border border-[var(--rule)] shadow-lg rounded-lg text-ink hover:border-teal/50 transition-colors">
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                <span className="font-mono text-[11px] font-bold text-ink-soft uppercase">
-                  Express · REST APIs
-                </span>
-              </div>
-            </div>
-
-            {/* Cyber Deck Console with Live Equalizer & Terminal: Bottom-Left */}
-            <div
-              className="absolute -bottom-4 -left-2 sm:-left-8 z-20 transition-transform duration-500 ease-out"
-              style={{ transform: `translate(${offset.x * -14}px, ${offset.y * -14}px)` }}
-            >
-              <div className="hud p-3.5 sm:p-4 bg-ink text-white backdrop-blur-2xl border border-teal/40 shadow-2xl rounded-xl max-w-[220px]">
-                {/* Status line */}
-                <div className="flex items-center justify-between gap-2 mb-2 pb-1.5 border-b border-white/10 text-[10px] font-mono">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-teal animate-pulse" />
-                    <span className="text-teal font-bold tracking-wider">ONLINE</span>
-                  </div>
-                  <span className="text-gold font-mono">99.9% UPTIME</span>
-                </div>
-
-                {/* Animated Equalizer Signal Bars */}
-                <div className="flex items-end gap-1.5 h-6 my-2 px-1">
-                  <div className="w-1.5 bg-teal rounded-full eq-bar-1" />
-                  <div className="w-1.5 bg-teal-400 rounded-full eq-bar-2" />
-                  <div className="w-1.5 bg-gold rounded-full eq-bar-3" />
-                  <div className="w-1.5 bg-teal-300 rounded-full eq-bar-4" />
-                  <div className="w-1.5 bg-teal rounded-full eq-bar-5" />
-                  <div className="w-1.5 bg-gold/80 rounded-full eq-bar-2" />
-                  <span className="text-[10px] font-mono text-white/50 ml-auto">0.02ms</span>
-                </div>
-
-                {/* Cyber Console Footer */}
-                <div className="text-[10px] font-mono text-white/70 tracking-tight flex items-center justify-between pt-1">
-                  <span>RUNTIME</span>
-                  <span className="text-teal font-semibold">FULLSTACK NODE</span>
-                </div>
-              </div>
-            </div>
-          </>
-        )}
+        <picture className="w-full max-w-[320px] sm:max-w-[360px] h-auto block relative z-10">
+          <img
+            src={profileImg}
+            alt="Sai Koemsean"
+            className="w-full h-auto object-contain transition-transform duration-300 hover:scale-[1.02]"
+            style={{
+              filter: "drop-shadow(0 20px 32px rgba(10, 122, 140, 0.22)) drop-shadow(0 4px 12px rgba(11, 16, 38, 0.10))",
+            }}
+          />
+        </picture>
       </div>
     </div>
   );
@@ -399,45 +88,23 @@ function Marquee() {
 /* ── Hero Section ── */
 function Hero() {
   const [loaded, setLoaded] = useState(false);
-  const heroRef = useRef(null);
-  const [mouseGlow, setMouseGlow] = useState({ x: -1000, y: -1000, active: false });
 
   useEffect(() => {
     setLoaded(true);
   }, []);
 
-  const handleHeroMouseMove = (e) => {
-    if (!heroRef.current) return;
-    const rect = heroRef.current.getBoundingClientRect();
-    setMouseGlow({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-      active: true,
-    });
-  };
-
-  const handleHeroMouseLeave = () => {
-    setMouseGlow((prev) => ({ ...prev, active: false }));
-  };
-
   return (
     <section
       id="home"
-      ref={heroRef}
-      onMouseMove={handleHeroMouseMove}
-      onMouseLeave={handleHeroMouseLeave}
-      className="min-h-[90vh] pt-16 sm:pt-20 lg:pt-24 pb-12 sm:pb-16 px-[var(--gutter)] flex flex-col justify-between relative overflow-hidden bg-contours bg-[var(--paper)]"
+      className="min-h-[90vh] pt-16 sm:pt-20 lg:pt-24 pb-12 sm:pb-16 px-[var(--gutter)] flex flex-col justify-between relative overflow-hidden bg-[var(--paper)]"
     >
-      {/* Ambient Interactive Cursor Spotlight */}
-      <div
-        className="pointer-events-none absolute -inset-px transition-opacity duration-500 -z-10"
-        style={{
-          opacity: mouseGlow.active ? 1 : 0,
-          background: `radial-gradient(600px circle at ${mouseGlow.x}px ${mouseGlow.y}px, rgba(10, 122, 140, 0.08), transparent 70%)`,
-        }}
-      />
+      {/* Dynamic 3D WebGL Contour Wave Flow Field Background */}
+      <ContourHeroBg />
 
-      <div className="max-w-[var(--max)] mx-auto w-full flex-grow flex flex-col justify-center">
+      {/* Subtle bottom gradient to blend into paper surface */}
+      <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[var(--paper)] to-transparent pointer-events-none z-[1]" />
+
+      <div className="max-w-[var(--max)] mx-auto w-full flex-grow flex flex-col justify-center relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
           {/* Left Column: Big Editorial Typography & Intro */}
           <div
@@ -515,7 +182,7 @@ function Hero() {
       </div>
 
       {/* Bottom bar indicator */}
-      <div className="max-w-[var(--max)] mx-auto w-full pt-8 sm:pt-10 flex items-center justify-between text-xs font-mono text-ink-soft border-t border-[var(--rule-subtle)]">
+      <div className="max-w-[var(--max)] mx-auto w-full pt-8 sm:pt-10 flex items-center justify-between text-xs font-mono text-ink-soft border-t border-[var(--rule-subtle)] relative z-10">
         <div className="flex items-center gap-2 group">
           <span className="material-symbols-outlined text-sm text-teal group-hover:scale-125 transition-transform">
             location_on
