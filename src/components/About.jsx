@@ -2,7 +2,7 @@ import React from 'react';
 
 const facts = [
     {
-        num: '3rd',
+        num: '4',
         label: 'Academic Year',
         desc: 'PIKT · Kampong Thom Province',
     },
